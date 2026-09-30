@@ -1,1 +1,597 @@
+/* =========================
+   RESET
+========================= */
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+
+    background: #f6f8f6;
+    color: #17201b;
+
+    padding-bottom: 85px;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid #e4e8e4;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 19px;
+    letter-spacing: -0.3px;
+}
+
+.logo span {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #17201b;
+    color: white;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.profile-btn {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #eef1ee;
+
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+.profile-btn:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: 100%;
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    padding: 20px 18px 45px;
+}
+
+
+/* =========================
+   SCREEN SYSTEM
+========================= */
+
+.screen {
+    display: none;
+
+    animation: screenIn 0.25s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes screenIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding: 38px 4px 25px;
+}
+
+.eyebrow {
+    margin-bottom: 16px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: #6c7770;
+}
+
+.hero h1 {
+    font-size: clamp(52px, 15vw, 92px);
+
+    line-height: 0.88;
+
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #16845f;
+}
+
+.hero-text {
+    max-width: 580px;
+
+    margin-top: 28px;
+
+    color: #69746d;
+
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+
+/* =========================
+   ACTION CARDS
+========================= */
+
+.action-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.action-card {
+    min-height: 155px;
+
+    padding: 21px;
+
+    text-align: left;
+
+    border: 1px solid #e1e6e1;
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow: 0 4px 15px rgba(20, 30, 24, 0.03);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 35px rgba(20, 30, 24, 0.08);
+}
+
+.action-card:active {
+    transform: scale(0.97);
+}
+
+.action-icon {
+    margin-bottom: 22px;
+
+    font-size: 28px;
+}
+
+.action-card h2 {
+    font-size: 20px;
+
+    letter-spacing: -0.4px;
+}
+
+.action-card p {
+    margin-top: 6px;
+
+    color: #77817b;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-section {
+    margin-top: 48px;
+}
+
+.search-section h2,
+.discover h2 {
+    margin-bottom: 14px;
+
+    font-size: 20px;
+
+    letter-spacing: -0.4px;
+}
+
+.search-box {
+    display: flex;
+
+    overflow: hidden;
+
+    border: 1px solid #dfe5df;
+    border-radius: 17px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 20px rgba(20, 30, 24, 0.04);
+}
+
+.search-box input {
+    width: 100%;
+
+    flex: 1;
+
+    padding: 17px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #17201b;
+
+    font-size: 15px;
+}
+
+.search-box input::placeholder {
+    color: #9aa39d;
+}
+
+.search-box button {
+    width: 58px;
+
+    background: #17201b;
+    color: white;
+
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+.search-box button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   DISCOVER
+========================= */
+
+.discover {
+    margin-top: 48px;
+}
+
+.discover-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.discover-grid button {
+    min-height: 95px;
+
+    padding: 15px 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 1px solid #e1e6e1;
+    border-radius: 17px;
+
+    background: white;
+
+    font-size: 23px;
+
+    transition: 0.2s;
+}
+
+.discover-grid button:hover {
+    transform: translateY(-3px);
+}
+
+.discover-grid button:active {
+    transform: scale(0.96);
+}
+
+.discover-grid span {
+    color: #59645e;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   INNER SCREENS
+========================= */
+
+.screen > h1 {
+    margin-top: 25px;
+
+    font-size: clamp(38px, 10vw, 58px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.section-subtitle {
+    max-width: 550px;
+
+    margin-top: 10px;
+
+    color: #68736d;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-btn {
+    margin-top: 5px;
+
+    padding: 8px 0;
+
+    background: transparent;
+
+    color: #16845f;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.back-btn:active {
+    transform: translateX(-3px);
+}
+
+
+/* =========================
+   PLACEHOLDER CARDS
+========================= */
+
+.placeholder-card {
+    margin-top: 30px;
+
+    padding: 38px 25px;
+
+    text-align: center;
+
+    border: 1px solid #e1e6e1;
+    border-radius: 24px;
+
+    background: white;
+
+    box-shadow:
+        0 8px 30px rgba(20, 30, 24, 0.04);
+}
+
+.placeholder-card > span {
+    display: block;
+
+    font-size: 45px;
+}
+
+.placeholder-card h2 {
+    margin-top: 18px;
+
+    font-size: 22px;
+}
+
+.placeholder-card p {
+    max-width: 480px;
+
+    margin: 10px auto 0;
+
+    color: #6d7771;
+
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 1000;
+
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 5px 5px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-top: 1px solid #e2e7e2;
+}
+
+.bottom-nav button {
+    min-width: 55px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    background: transparent;
+
+    color: #6b756f;
+
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+.bottom-nav button:active {
+    transform: scale(0.9);
+}
+
+.bottom-nav span {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero {
+        padding-top: 30px;
+    }
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .action-grid {
+        gap: 10px;
+    }
+
+    .action-card {
+        min-height: 145px;
+
+        padding: 18px;
+    }
+
+    .action-icon {
+        margin-bottom: 18px;
+    }
+
+    .action-card h2 {
+        font-size: 18px;
+    }
+
+    .action-card p {
+        font-size: 12px;
+    }
+
+    .discover-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .action-card {
+        padding: 15px;
+    }
+
+    .bottom-nav button {
+        min-width: 48px;
+    }
+
+    .bottom-nav span {
+        font-size: 9px;
+    }
+}
