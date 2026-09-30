@@ -1,1 +1,343 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap — Learn. Earn. Exchange.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- =========================
+         TOP BAR
+    ========================== -->
+    <header class="topbar">
+        <div class="logo">
+            <span>SS</span>
+            <strong>SkillSwap</strong>
+        </div>
+        <button class="profile-btn" onclick="showScreen('profile')">
+            👤
+        </button>
+    </header>
+    <!-- =========================
+         MAIN APP
+    ========================== -->
+    <main>
+        <!-- =========================
+             HOME
+        ========================== -->
+        <section id="home" class="screen active">
+            <div class="hero">
+                <p class="eyebrow">
+                    YOUR SKILLS. YOUR OPPORTUNITIES.
+                </p>
+                <h1>
+                    Learn.<br>
+                    Earn.<br>
+                    <span>Exchange.</span>
+                </h1>
+                <p class="hero-text">
+                    Learn new skills, offer what you know,
+                    find collaborators and build something together.
+                </p>
+            </div>
+            <!-- Main Actions -->
+            <div class="action-grid">
+                <button
+                    class="action-card"
+                    onclick="showScreen('earn')">
+                    <div class="action-icon">
+                        💰
+                    </div>
+                    <h2>Earn</h2>
+                    <p>
+                        Offer your skills
+                    </p>
+                </button>
+                <button
+                    class="action-card"
+                    onclick="showScreen('learn')">
+                    <div class="action-icon">
+                        🎓
+                    </div>
+                    <h2>Learn</h2>
+                    <p>
+                        Find someone to teach you
+                    </p>
+                </button>
+                <button
+                    class="action-card"
+                    onclick="showScreen('swap')">
+                    <div class="action-icon">
+                        🔄
+                    </div>
+                    <h2>Swap</h2>
+                    <p>
+                        Exchange skills
+                    </p>
+                </button>
+                <button
+                    class="action-card"
+                    onclick="showScreen('projects')">
+                    <div class="action-icon">
+                        🤝
+                    </div>
+                    <h2>Projects</h2>
+                    <p>
+                        Find collaborators
+                    </p>
+                </button>
+            </div>
+            <!-- Search -->
+            <div class="search-section">
+                <h2>
+                    What are you looking for?
+                </h2>
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="skillSearch"
+                        placeholder="Search skills, people or projects..."
+                    >
+                    <button onclick="searchSkill()">
+                        🔎
+                    </button>
+                </div>
+            </div>
+            <!-- Discover -->
+            <div class="discover">
+                <h2>
+                    Discover
+                </h2>
+                <div class="discover-grid">
+                    <button onclick="showScreen('communities')">
+                        👥
+                        <span>Communities</span>
+                    </button>
+                    <button onclick="showScreen('hackathons')">
+                        🏆
+                        <span>Hackathons</span>
+                    </button>
+                    <button onclick="showScreen('projects')">
+                        🚀
+                        <span>Projects</span>
+                    </button>
+                    <button onclick="showScreen('learn')">
+                        📚
+                        <span>Learn</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- =========================
+             LEARN
+        ========================== -->
+        <section id="learn" class="screen">
+            <button
+                class="back-btn"
+                onclick="showScreen('home')">
+                ← Back
+            </button>
+            <h1>
+                Learn
+            </h1>
+            <p class="section-subtitle">
+                Find people who can teach you a skill.
+            </p>
+            <div class="placeholder-card">
+                <span>🎓</span>
+                <h2>
+                    Learn something new
+                </h2>
+                <p>
+                    Find people who can teach you
+                    the skills you want to learn.
+                </p>
+            </div>
+        </section>
+        <!-- =========================
+             EARN
+        ========================== -->
+        <section id="earn" class="screen">
+            <button
+                class="back-btn"
+                onclick="showScreen('home')">
+                ← Back
+            </button>
+            <h1>
+                Earn
+            </h1>
+            <p class="section-subtitle">
+                Turn your skills into opportunities.
+            </p>
+            <div class="placeholder-card">
+                <span>💰</span>
+                <h2>
+                    Offer your skills
+                </h2>
+                <p>
+                    Create a skill listing and let
+                    people discover what you can do.
+                </p>
+            </div>
+        </section>
+        <!-- =========================
+             SWAP
+        ========================== -->
+        <section id="swap" class="screen">
+            <button
+                class="back-btn"
+                onclick="showScreen('home')">
+                ← Back
+            </button>
+            <h1>
+                Skill Swap
+            </h1>
+            <p class="section-subtitle">
+                Exchange knowledge instead of money.
+            </p>
+            <div class="placeholder-card">
+                <span>🔄</span>
+                <h2>
+                    Exchange skills
+                </h2>
+                <p>
+                    Teach someone what you know
+                    while learning something you want to know.
+                </p>
+            </div>
+        </section>
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+        <section id="projects" class="screen">
+            <button
+                class="back-btn"
+                onclick="showScreen('home')">
+                ← Back
+            </button>
+            <h1>
+                Projects
+            </h1>
+            <p class="section-subtitle">
+                Find people to build something together.
+            </p>
+            <div class="placeholder-card">
+                <span>🤝</span>
+                <h2>
+                    Build your team
+                </h2>
+                <p>
+                    Find people with complementary
+                    skills for projects and hackathons.
+                </p>
+            </div>
+        </section>
+        <!-- =========================
+             COMMUNITIES
+        ========================== -->
+        <section id="communities" class="screen">
+            <button
+                class="back-btn"
+                onclick="showScreen('home')">
+                ← Back
+            </button>
+            <h1>
+                Communities
+            </h1>
+            <p class="section-subtitle">
+                Connect around skills and interests.
+            </p>
+            <div class="placeholder-card">
+                <span>👥</span>
+                <h2>
+                    Find your community
+                </h2>
+                <p>
+                    Join skill-based communities,
+                    learn together and collaborate.
+                </p>
+            </div>
+        </section>
+        <!-- =========================
+             HACKATHONS
+        ========================== -->
+        <section id="hackathons" class="screen">
+            <button
+                class="back-btn"
+                onclick="showScreen('home')">
+                ← Back
+            </button>
+            <h1>
+                Hackathons
+            </h1>
+            <p class="section-subtitle">
+                Discover hackathons and form your team.
+            </p>
+            <div class="placeholder-card">
+                <span>🏆</span>
+                <h2>
+                    Hackathons in Manipur
+                </h2>
+                <p>
+                    Discover upcoming hackathons,
+                    find teammates and build projects together.
+                </p>
+            </div>
+        </section>
+        <!-- =========================
+             PROFILE
+        ========================== -->
+        <section id="profile" class="screen">
+            <button
+                class="back-btn"
+                onclick="showScreen('home')">
+                ← Back
+            </button>
+            <h1>
+                Your Profile
+            </h1>
+            <p class="section-subtitle">
+                Show people what you can do.
+            </p>
+            <div class="placeholder-card">
+                <span>👤</span>
+                <h2>
+                    Build your skill profile
+                </h2>
+                <p>
+                    Add your skills, experience,
+                    interests and what you want to learn.
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- =========================
+         BOTTOM NAVIGATION
+    ========================== -->
+    <nav class="bottom-nav">
+        <button onclick="showScreen('home')">
+            🏠
+            <span>Home</span>
+        </button>
+        <button onclick="showScreen('learn')">
+            🎓
+            <span>Learn</span>
+        </button>
+        <button onclick="showScreen('projects')">
+            🤝
+            <span>Projects</span>
+        </button>
+        <button onclick="showScreen('communities')">
+            👥
+            <span>Community</span>
+        </button>
+        <button onclick="showScreen('profile')">
+            👤
+            <span>Profile</span>
+        </button>
+    </nav>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
