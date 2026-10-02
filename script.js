@@ -138,54 +138,111 @@ function findTeamMembers() {
     const results = document.getElementById("teamResults");
 
     results.innerHTML = `
-        <div class="placeholder-card">
+        <div class="team-results">
 
-            <span>🤖</span>
+            <p class="eyebrow">
+                TEAM MATCHES
+            </p>
 
             <h2>
-                Finding teammates...
+                People you could build with
             </h2>
 
-            <p>
-                SkillSwap will match people based on
-                the skills needed for your project.
-            </p>
+            <div class="team-card">
+
+                <div class="team-avatar">
+                    👨‍💻
+                </div>
+
+                <div class="team-info">
+
+                    <h3>
+                        Alex
+                    </h3>
+
+                    <p>
+                        Frontend Developer
+                    </p>
+
+                    <span>
+                        HTML • CSS • JavaScript
+                    </span>
+
+                </div>
+
+                <button
+                    onclick="alert('Team request sent!')">
+
+                    Request
+
+                </button>
+
+            </div>
+
+
+            <div class="team-card">
+
+                <div class="team-avatar">
+                    🎨
+                </div>
+
+                <div class="team-info">
+
+                    <h3>
+                        Maya
+                    </h3>
+
+                    <p>
+                        UI/UX Designer
+                    </p>
+
+                    <span>
+                        Figma • UI Design • Prototyping
+                    </span>
+
+                </div>
+
+                <button
+                    onclick="alert('Team request sent!')">
+
+                    Request
+
+                </button>
+
+            </div>
+
+
+            <div class="team-card">
+
+                <div class="team-avatar">
+                    🤖
+                </div>
+
+                <div class="team-info">
+
+                    <h3>
+                        Rahul
+                    </h3>
+
+                    <p>
+                        AI / ML Developer
+                    </p>
+
+                    <span>
+                        Python • Machine Learning • AI
+                    </span>
+
+                </div>
+
+                <button
+                    onclick="alert('Team request sent!')">
+
+                    Request
+
+                </button>
+
+            </div>
 
         </div>
     `;
 }
-// =========================
-// TEAM BUILDER
-// =========================
-
-function findTeamMembers() {
-
-    const idea = document.getElementById("teamIdea").value.trim();
-    const skills = document.getElementById("teamSkills").value.trim();
-    const size = document.getElementById("teamSize").value.trim();
-
-    if (!idea || !skills || !size) {
-        alert("Please fill in all team details.");
-        return;
-    }
-
-    const results = document.getElementById("teamResults");
-
-    results.innerHTML = `
-        <div class="placeholder-card">
-
-            <span>🤖</span>
-
-            <h2>
-                Finding teammates...
-            </h2>
-
-            <p>
-                SkillSwap is looking for people
-                with the skills needed for your project.
-            </p>
-
-        </div>
-    `;
-}
-
