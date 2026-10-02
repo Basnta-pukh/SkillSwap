@@ -768,4 +768,368 @@ main {
     font-size: 11px;
     font-weight: 700;
 }
+/* =========================
+   PREMIUM BUILD EXPERIENCE
+========================= */
 
+.build-header {
+    padding: 22px 4px 10px;
+}
+
+.build-header h1 {
+    margin-top: 4px;
+
+    font-size: clamp(42px, 11vw, 64px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    color: #17201b;
+}
+
+.build-header .section-subtitle {
+    max-width: 520px;
+}
+
+
+/* =========================
+   BUILD OPTIONS
+========================= */
+
+.build-options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+.build-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 112px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border: 1px solid #dfe6e1;
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f4f8f5 100%
+        );
+
+    box-shadow:
+        0 8px 25px rgba(20, 30, 24, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.build-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #16845f;
+
+    box-shadow:
+        0 16px 35px rgba(20, 30, 24, 0.09);
+}
+
+.build-card:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   BUILD ICON
+========================= */
+
+.build-card-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 16px;
+
+    border-radius: 18px;
+
+    background: #17201b;
+    color: white;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 8px 18px rgba(23, 32, 27, 0.16);
+}
+
+
+/* =========================
+   BUILD CONTENT
+========================= */
+
+.build-card-content {
+    flex: 1;
+}
+
+.build-card-content h2 {
+    color: #17201b;
+
+    font-size: 18px;
+
+    letter-spacing: -0.4px;
+}
+
+.build-card-content p {
+    max-width: 430px;
+
+    margin-top: 6px;
+
+    color: #6d7771;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ARROW
+========================= */
+
+.card-arrow {
+    margin-left: 10px;
+
+    color: #16845f;
+
+    font-size: 24px;
+
+    transition: transform 0.2s ease;
+}
+
+.build-card:hover .card-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================
+   BUILD TIP
+========================= */
+
+.build-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    margin-top: 24px;
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background: #17201b;
+    color: white;
+
+    box-shadow:
+        0 10px 30px rgba(20, 30, 24, 0.12);
+}
+
+.build-tip > span {
+    font-size: 23px;
+}
+
+.build-tip strong {
+    font-size: 14px;
+}
+
+.build-tip p {
+    margin-top: 5px;
+
+    color: #cbd4ce;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================
+   PREMIUM PROJECT FORM
+========================= */
+
+.project-form {
+    margin-top: 30px;
+
+    padding: 22px;
+
+    border: 1px solid #dfe6e1;
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f3f7f4
+        );
+
+    box-shadow:
+        0 10px 30px rgba(20, 30, 24, 0.06);
+}
+
+.project-form label {
+    color: #17201b;
+}
+
+.project-form input,
+.project-form textarea {
+    background: #ffffff;
+
+    border: 1px solid #dce4de;
+
+    border-radius: 14px;
+}
+
+.project-form input:focus,
+.project-form textarea:focus {
+    border-color: #16845f;
+
+    box-shadow:
+        0 0 0 4px rgba(22, 132, 95, 0.08);
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+
+.primary-btn {
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 14px 18px;
+
+    border-radius: 15px;
+
+    background: #17201b;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(23, 32, 27, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+    box-shadow:
+        0 12px 25px rgba(23, 32, 27, 0.2);
+}
+
+.primary-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   TEAM RESULTS
+========================= */
+
+.team-results {
+    margin-top: 30px;
+}
+
+.team-results h2 {
+    color: #17201b;
+}
+
+.team-card {
+    border: 1px solid #dfe6e1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f4f8f5
+        );
+
+    box-shadow:
+        0 7px 22px rgba(20, 30, 24, 0.05);
+}
+
+.team-card button {
+    background: #17201b;
+
+    border-radius: 11px;
+
+    transition: 0.2s;
+}
+
+.team-card button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   BUILD MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .build-header {
+        padding-top: 18px;
+    }
+
+    .build-card {
+        min-height: 105px;
+
+        padding: 16px;
+    }
+
+    .build-card-icon {
+        width: 52px;
+        height: 52px;
+
+        margin-right: 13px;
+
+        border-radius: 16px;
+
+        font-size: 24px;
+    }
+
+    .build-card-content h2 {
+        font-size: 16px;
+    }
+
+    .build-card-content p {
+        font-size: 11px;
+    }
+
+    .card-arrow {
+        font-size: 20px;
+    }
+
+    .project-form {
+        padding: 18px;
+    }
+}
