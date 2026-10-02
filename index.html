@@ -389,6 +389,98 @@
     </div>
 
 </section>
+
+  <!-- =========================
+     CREATE PROJECT
+========================= -->
+
+<section id="createProject" class="screen">
+
+    <button
+        class="back-btn"
+        onclick="showScreen('projects')">
+
+        ← Back
+
+    </button>
+
+
+    <div class="build-header">
+
+        <p class="eyebrow">
+            START BUILDING
+        </p>
+
+        <h1>
+            Create a Project
+        </h1>
+
+        <p class="section-subtitle">
+            Share your idea and find people who
+            want to build it with you.
+        </p>
+
+    </div>
+
+
+    <div class="project-form">
+
+        <label for="projectName">
+            Project Name
+        </label>
+
+        <input
+            type="text"
+            id="projectName"
+            placeholder="e.g. Flood Prediction App"
+        >
+
+
+        <label for="projectDescription">
+            What are you building?
+        </label>
+
+        <textarea
+            id="projectDescription"
+            rows="5"
+            placeholder="Describe your project idea...">
+        </textarea>
+
+
+        <label for="projectSkills">
+            Skills Needed
+        </label>
+
+        <input
+            type="text"
+            id="projectSkills"
+            placeholder="e.g. AI/ML, GIS, Frontend"
+        >
+
+
+        <label for="projectMembers">
+            People Needed
+        </label>
+
+        <input
+            type="number"
+            id="projectMembers"
+            min="1"
+            placeholder="e.g. 5"
+        >
+
+
+        <button
+            class="primary-btn"
+            onclick="createProjectPost()">
+
+            🚀 Create Project
+
+        </button>
+
+    </div>
+
+</section>      
         <!-- =========================
              COMMUNITIES
         ========================== -->
