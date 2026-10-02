@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+
 // =========================
 // CREATE PROJECT
 // =========================
@@ -109,6 +111,8 @@ function createProjectPost() {
 
     showScreen("projects");
 }
+
+
 // =========================
 // OPEN CREATE PROJECT
 // =========================
