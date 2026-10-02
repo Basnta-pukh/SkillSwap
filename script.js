@@ -107,7 +107,4 @@ function createProjectPost() {
     document.getElementById("projectSkills").value = "";
     document.getElementById("projectMembers").value = "";
 
-    showScreen("findProjects");
-
-    loadProjects();
-}
+    showScreen("projects");
