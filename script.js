@@ -108,6 +108,7 @@ function createProjectPost() {
     document.getElementById("projectMembers").value = "";
 
     showScreen("projects");
+}
 // =========================
 // OPEN CREATE PROJECT
 // =========================
