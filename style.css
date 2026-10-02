@@ -616,3 +616,70 @@ main {
     font-weight: 400;
     line-height: 1;
 }
+/* =========================
+   CREATE PROJECT FORM
+========================= */
+
+.project-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+.project-form label {
+    margin-top: 8px;
+
+    color: #27312b;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.project-form input,
+.project-form textarea {
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid #dfe5e0;
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    color: #17201b;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.project-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.project-form input::placeholder,
+.project-form textarea::placeholder {
+    color: #9aa39d;
+}
+
+.project-form input:focus,
+.project-form textarea:focus {
+    border-color: #16845f;
+
+    box-shadow:
+        0 0 0 3px rgba(22, 132, 95, 0.08);
+}
+
+.project-form .primary-btn {
+    margin-top: 18px;
+}
