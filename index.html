@@ -450,6 +450,83 @@
     </div>
 
 </section>      
+     <!-- =========================
+     TEAM BUILDER
+========================= -->
+
+<section id="teamBuilder" class="screen">
+
+    <button
+        class="back-btn"
+        onclick="showScreen('projects')">
+
+        ← Back
+
+    </button>
+
+    <div class="build-header">
+
+        <p class="eyebrow">
+            FIND THE RIGHT PEOPLE
+        </p>
+
+        <h1>
+            Build Your Team
+        </h1>
+
+        <p class="section-subtitle">
+            Tell us what you want to build and
+            what skills you need.
+        </p>
+
+    </div>
+
+    <div class="project-form">
+
+        <label for="teamIdea">
+            What are you building?
+        </label>
+
+        <textarea
+            id="teamIdea"
+            rows="5"
+            placeholder="Example: Flood Prediction App">
+        </textarea>
+
+        <label for="teamSkills">
+            Skills you need
+        </label>
+
+        <input
+            type="text"
+            id="teamSkills"
+            placeholder="Example: AI/ML, GIS, UI/UX"
+        >
+
+        <label for="teamSize">
+            How many people do you need?
+        </label>
+
+        <input
+            type="number"
+            id="teamSize"
+            min="1"
+            placeholder="Example: 4"
+        >
+
+        <button
+            class="primary-btn"
+            onclick="findTeamMembers()">
+
+            🔎 Find Teammates
+
+        </button>
+
+    </div>
+
+    <div id="teamResults"></div>
+
+</section>   
         <!-- =========================
              COMMUNITIES
         ========================== -->
