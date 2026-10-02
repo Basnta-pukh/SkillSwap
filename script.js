@@ -120,3 +120,37 @@ function createProjectPost() {
 function createProject() {
     showScreen("createProject");
 }
+// =========================
+// TEAM BUILDER
+// =========================
+
+function findTeamMembers() {
+
+    const idea = document.getElementById("teamIdea").value.trim();
+    const skills = document.getElementById("teamSkills").value.trim();
+    const size = document.getElementById("teamSize").value.trim();
+
+    if (!idea || !skills || !size) {
+        alert("Please fill in all team details.");
+        return;
+    }
+
+    const results = document.getElementById("teamResults");
+
+    results.innerHTML = `
+        <div class="placeholder-card">
+
+            <span>🤖</span>
+
+            <h2>
+                Finding teammates...
+            </h2>
+
+            <p>
+                SkillSwap will match people based on
+                the skills needed for your project.
+            </p>
+
+        </div>
+    `;
+}
