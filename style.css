@@ -683,3 +683,89 @@ main {
 .project-form .primary-btn {
     margin-top: 18px;
 }
+/* =========================
+   TEAM MATCHES
+========================= */
+
+.team-results {
+    margin-top: 38px;
+}
+
+.team-results h2 {
+    margin-bottom: 18px;
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+
+.team-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 12px;
+    padding: 16px;
+
+    border: 1px solid #e1e6e1;
+    border-radius: 20px;
+
+    background: white;
+
+    box-shadow:
+        0 6px 20px rgba(20, 30, 24, 0.04);
+}
+
+.team-avatar {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #eef3ef;
+
+    font-size: 24px;
+}
+
+.team-info {
+    flex: 1;
+}
+
+.team-info h3 {
+    font-size: 16px;
+}
+
+.team-info p {
+    margin-top: 3px;
+
+    color: #59645e;
+
+    font-size: 12px;
+}
+
+.team-info span {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #16845f;
+
+    font-size: 10px;
+}
+
+.team-card button {
+    padding: 9px 12px;
+
+    border-radius: 11px;
+
+    background: #17201b;
+    color: white;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
