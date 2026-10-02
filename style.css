@@ -1133,3 +1133,361 @@ main {
         padding: 18px;
     }
 }
+/* ========================================
+   PREMIUM + COLOURFUL BUILD EXPERIENCE
+======================================== */
+
+/* Build page background */
+
+#projects {
+    position: relative;
+}
+
+
+/* Build heading */
+
+#projects .build-header {
+    padding: 24px 4px 8px;
+}
+
+#projects .build-header .eyebrow {
+    color: #16845f;
+    font-weight: 900;
+}
+
+#projects .build-header h1 {
+    font-size: clamp(46px, 13vw, 72px);
+    letter-spacing: -4px;
+    color: #17201b;
+}
+
+#projects .build-header .section-subtitle {
+    color: #69746d;
+}
+
+
+/* ========================================
+   BUILD CARDS
+======================================== */
+
+#projects .build-options {
+    gap: 16px;
+    margin-top: 30px;
+}
+
+
+/* Base card */
+
+#projects .build-card {
+    position: relative;
+
+    min-height: 125px;
+
+    padding: 22px;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 26px;
+
+    color: #17201b;
+
+    box-shadow:
+        0 12px 30px rgba(20, 30, 24, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Decorative glow */
+
+#projects .build-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -35px;
+    top: -40px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.35);
+
+    pointer-events: none;
+}
+
+
+/* Hover */
+
+#projects .build-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 40px rgba(20, 30, 24, 0.13);
+}
+
+#projects .build-card:active {
+    transform: scale(0.97);
+}
+
+
+/* ========================================
+   CREATE PROJECT
+======================================== */
+
+#projects .build-card:nth-child(1) {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff8ed,
+            #bcebd8
+        );
+}
+
+#projects .build-card:nth-child(1) .build-card-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #16845f,
+            #0d6b4c
+        );
+
+    box-shadow:
+        0 10px 22px rgba(22,132,95,0.25);
+}
+
+
+/* ========================================
+   BUILD YOUR TEAM
+======================================== */
+
+#projects .build-card:nth-child(2) {
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8e1ff,
+            #d1c5ff
+        );
+}
+
+#projects .build-card:nth-child(2) .build-card-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #7057d9,
+            #5741b8
+        );
+
+    box-shadow:
+        0 10px 22px rgba(112,87,217,0.25);
+}
+
+
+/* ========================================
+   HACKATHONS
+======================================== */
+
+#projects .build-card:nth-child(3) {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0d7,
+            #ffdca8
+        );
+}
+
+#projects .build-card:nth-child(3) .build-card-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f29b38,
+            #db7412
+        );
+
+    box-shadow:
+        0 10px 22px rgba(242,155,56,0.28);
+}
+
+
+/* ========================================
+   ICONS
+======================================== */
+
+#projects .build-card-icon {
+
+    position: relative;
+    z-index: 2;
+
+    width: 60px;
+    height: 60px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 17px;
+
+    border-radius: 19px;
+
+    color: white;
+
+    font-size: 28px;
+}
+
+
+/* ========================================
+   CARD TEXT
+======================================== */
+
+#projects .build-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+#projects .build-card-content h2 {
+
+    font-size: 18px;
+
+    letter-spacing: -0.5px;
+
+    color: #17201b;
+}
+
+#projects .build-card-content p {
+
+    margin-top: 6px;
+
+    max-width: 420px;
+
+    color: #4f5c54;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+
+/* ========================================
+   ARROWS
+======================================== */
+
+#projects .card-arrow {
+
+    position: relative;
+    z-index: 2;
+
+    color: #17201b;
+
+    font-size: 27px;
+
+    font-weight: 300;
+}
+
+#projects .build-card:hover .card-arrow {
+    transform: translateX(6px);
+}
+
+
+/* ========================================
+   BUILD TIP
+======================================== */
+
+#projects .build-tip {
+
+    position: relative;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #17201b,
+            #26362d
+        );
+
+    color: white;
+
+    box-shadow:
+        0 15px 35px rgba(23,32,27,0.16);
+
+    overflow: hidden;
+}
+
+
+/* Tip glow */
+
+#projects .build-tip::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: -45px;
+    top: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(22,132,95,0.25);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    #projects .build-card {
+
+        min-height: 118px;
+
+        padding: 17px;
+
+        border-radius: 23px;
+    }
+
+    #projects .build-card-icon {
+
+        width: 52px;
+        height: 52px;
+
+        margin-right: 13px;
+
+        border-radius: 17px;
+
+        font-size: 24px;
+    }
+
+    #projects .build-card-content h2 {
+        font-size: 16px;
+    }
+
+    #projects .build-card-content p {
+        font-size: 11px;
+    }
+
+    #projects .card-arrow {
+        font-size: 22px;
+    }
+}
+
