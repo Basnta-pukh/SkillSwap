@@ -65,3 +65,49 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+// =========================
+// CREATE PROJECT
+// =========================
+
+function createProjectPost() {
+
+    const name = document.getElementById("projectName").value.trim();
+    const description = document.getElementById("projectDescription").value.trim();
+    const skills = document.getElementById("projectSkills").value.trim();
+    const members = document.getElementById("projectMembers").value.trim();
+
+    if (!name || !description || !skills || !members) {
+        alert("Please fill in all project details.");
+        return;
+    }
+
+    const project = {
+        id: Date.now(),
+        name: name,
+        description: description,
+        skills: skills,
+        membersNeeded: Number(members),
+        membersJoined: 1
+    };
+
+    const projects =
+        JSON.parse(localStorage.getItem("skillswapProjects")) || [];
+
+    projects.push(project);
+
+    localStorage.setItem(
+        "skillswapProjects",
+        JSON.stringify(projects)
+    );
+
+    alert("Project created successfully! 🚀");
+
+    document.getElementById("projectName").value = "";
+    document.getElementById("projectDescription").value = "";
+    document.getElementById("projectSkills").value = "";
+    document.getElementById("projectMembers").value = "";
+
+    showScreen("findProjects");
+
+    loadProjects();
+}
