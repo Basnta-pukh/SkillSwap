@@ -1,2280 +1,1329 @@
-/* =========================
-   RESET
-========================= */
-
+/* =========================================================
+   SKILLSWAP — MASTER STYLESHEET
+   Learn. Earn. Exchange.
+   ========================================================= */
+/* =========================================================
+   1. GLOBAL RESET
+   ========================================================= */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, Helvetica, Arial, sans-serif;
-
-    background: #f6f8f6;
+    font-family: "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    background:
+        radial-gradient(
+            circle at 20% 0%,
+            rgba(124, 58, 237, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(37, 99, 235, 0.07),
+            transparent 30%
+        ),
+        #f6f8f6;
     color: #17201b;
-
+    min-height: 100vh;
     padding-bottom: 85px;
 }
-
 button,
-input {
-    font: inherit;
+input,
+textarea {
+    font-family: inherit;
 }
-
 button {
     border: none;
     cursor: pointer;
 }
-
-
-/* =========================
-   TOP BAR
-========================= */
-
+input,
+textarea {
+    outline: none;
+}
+/* =========================================================
+   2. TOP BAR
+   ========================================================= */
 .topbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    height: 64px;
-
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 18px;
-
-    background: rgba(255, 255, 255, 0.94);
-
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid #e4e8e4;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.04);
 }
-
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-
-    font-size: 19px;
-    letter-spacing: -0.3px;
 }
-
 .logo span {
-    width: 36px;
-    height: 36px;
-
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 11px;
-
-    background: #17201b;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #2563eb
+    );
     color: white;
-
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 800;
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.25);
 }
-
+.logo strong {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
 .profile-btn {
     width: 40px;
     height: 40px;
-
     border-radius: 50%;
-
-    background: #eef1ee;
-
-    font-size: 18px;
-
-    transition: 0.2s;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow:
+        0 5px 16px rgba(15, 23, 42, 0.06);
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
-
+.profile-btn:hover {
+    transform: translateY(-2px);
+}
 .profile-btn:active {
-    transform: scale(0.92);
+    transform: scale(0.94);
 }
-
-
-/* =========================
-   MAIN
-========================= */
-
+/* =========================================================
+   3. MAIN APP / SCREEN SYSTEM
+   ========================================================= */
 main {
     width: 100%;
-    max-width: 920px;
-
+    max-width: 900px;
     margin: 0 auto;
-
-    padding: 20px 18px 45px;
+    padding: 28px 18px 40px;
 }
-
-
-/* =========================
-   SCREEN SYSTEM
-========================= */
-
 .screen {
     display: none;
-
-    animation: screenIn 0.25s ease;
+    animation:
+        screenFade 0.35s ease;
 }
-
 .screen.active {
     display: block;
 }
-
-@keyframes screenIn {
+@keyframes screenFade {
     from {
         opacity: 0;
         transform: translateY(8px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
-
-/* =========================
-   HERO
-========================= */
-
+/* =========================================================
+   4. HOME HERO
+   ========================================================= */
 .hero {
-    padding: 38px 4px 25px;
+    position: relative;
+    padding: 35px 8px 25px;
+    overflow: hidden;
 }
-
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -80px;
+    top: -50px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.14),
+            transparent 70%
+        );
+    pointer-events: none;
+}
 .eyebrow {
-    margin-bottom: 16px;
-
+    margin-bottom: 12px;
     font-size: 11px;
     font-weight: 800;
-
     letter-spacing: 1.5px;
-
-    color: #6c7770;
+    color: #64748b;
 }
-
 .hero h1 {
-    font-size: clamp(52px, 15vw, 92px);
-
-    line-height: 0.88;
-
-    letter-spacing: -5px;
+    position: relative;
+    z-index: 1;
+    font-size: clamp(48px, 12vw, 82px);
+    line-height: 0.94;
+    letter-spacing: -4px;
+    font-weight: 800;
+    color: #17201b;
 }
-
 .hero h1 span {
-    color: #16845f;
-}
-
-.hero-text {
-    max-width: 580px;
-
-    margin-top: 28px;
-
-    color: #69746d;
-
-    font-size: 15px;
-    line-height: 1.65;
-}
-
-
-/* =========================
-   ACTION CARDS
-========================= */
-
-.action-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 12px;
-
-    margin-top: 18px;
-}
-
-.action-card {
-    min-height: 155px;
-
-    padding: 21px;
-
-    text-align: left;
-
-    border: 1px solid #e1e6e1;
-    border-radius: 22px;
-
-    background: #ffffff;
-
-    box-shadow: 0 4px 15px rgba(20, 30, 24, 0.03);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.action-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 14px 35px rgba(20, 30, 24, 0.08);
-}
-
-.action-card:active {
-    transform: scale(0.97);
-}
-
-.action-icon {
-    margin-bottom: 22px;
-
-    font-size: 28px;
-}
-
-.action-card h2 {
-    font-size: 20px;
-
-    letter-spacing: -0.4px;
-}
-
-.action-card p {
-    margin-top: 6px;
-
-    color: #77817b;
-
-    font-size: 13px;
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-section {
-    margin-top: 48px;
-}
-
-.search-section h2,
-.discover h2 {
-    margin-bottom: 14px;
-
-    font-size: 20px;
-
-    letter-spacing: -0.4px;
-}
-
-.search-box {
-    display: flex;
-
-    overflow: hidden;
-
-    border: 1px solid #dfe5df;
-    border-radius: 17px;
-
-    background: white;
-
-    box-shadow:
-        0 5px 20px rgba(20, 30, 24, 0.04);
-}
-
-.search-box input {
-    width: 100%;
-
-    flex: 1;
-
-    padding: 17px;
-
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    color: #17201b;
-
-    font-size: 15px;
-}
-
-.search-box input::placeholder {
-    color: #9aa39d;
-}
-
-.search-box button {
-    width: 58px;
-
-    background: #17201b;
-    color: white;
-
-    font-size: 18px;
-
-    transition: 0.2s;
-}
-
-.search-box button:active {
-    transform: scale(0.95);
-}
-
-
-/* =========================
-   DISCOVER
-========================= */
-
-.discover {
-    margin-top: 48px;
-}
-
-.discover-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 10px;
-}
-
-.discover-grid button {
-    min-height: 95px;
-
-    padding: 15px 8px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    border: 1px solid #e1e6e1;
-    border-radius: 17px;
-
-    background: white;
-
-    font-size: 23px;
-
-    transition: 0.2s;
-}
-
-.discover-grid button:hover {
-    transform: translateY(-3px);
-}
-
-.discover-grid button:active {
-    transform: scale(0.96);
-}
-
-.discover-grid span {
-    color: #59645e;
-
-    font-size: 11px;
-    font-weight: 600;
-}
-
-
-/* =========================
-   INNER SCREENS
-========================= */
-
-.screen > h1 {
-    margin-top: 25px;
-
-    font-size: clamp(38px, 10vw, 58px);
-
-    line-height: 1;
-
-    letter-spacing: -2px;
-}
-
-.section-subtitle {
-    max-width: 550px;
-
-    margin-top: 10px;
-
-    color: #68736d;
-
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-
-/* =========================
-   BACK BUTTON
-========================= */
-
-.back-btn {
-    margin-top: 5px;
-
-    padding: 8px 0;
-
-    background: transparent;
-
-    color: #16845f;
-
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.back-btn:active {
-    transform: translateX(-3px);
-}
-
-
-/* =========================
-   PLACEHOLDER CARDS
-========================= */
-
-.placeholder-card {
-    margin-top: 30px;
-
-    padding: 38px 25px;
-
-    text-align: center;
-
-    border: 1px solid #e1e6e1;
-    border-radius: 24px;
-
-    background: white;
-
-    box-shadow:
-        0 8px 30px rgba(20, 30, 24, 0.04);
-}
-
-.placeholder-card > span {
-    display: block;
-
-    font-size: 45px;
-}
-
-.placeholder-card h2 {
-    margin-top: 18px;
-
-    font-size: 22px;
-}
-
-.placeholder-card p {
-    max-width: 480px;
-
-    margin: 10px auto 0;
-
-    color: #6d7771;
-
-    font-size: 14px;
-    line-height: 1.65;
-}
-
-
-/* =========================
-   BOTTOM NAVIGATION
-========================= */
-
-.bottom-nav {
-    position: fixed;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    z-index: 1000;
-
-    height: 72px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    padding: 5px 5px;
-
-    background: rgba(255, 255, 255, 0.95);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-top: 1px solid #e2e7e2;
-}
-
-.bottom-nav button {
-    min-width: 55px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 4px;
-
-    background: transparent;
-
-    color: #6b756f;
-
-    font-size: 18px;
-
-    transition: 0.2s;
-}
-
-.bottom-nav button:active {
-    transform: scale(0.9);
-}
-
-.bottom-nav span {
-    font-size: 10px;
-    font-weight: 600;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    main {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .hero {
-        padding-top: 30px;
-    }
-
-    .hero h1 {
-        letter-spacing: -4px;
-    }
-
-    .action-grid {
-        gap: 10px;
-    }
-
-    .action-card {
-        min-height: 145px;
-
-        padding: 18px;
-    }
-
-    .action-icon {
-        margin-bottom: 18px;
-    }
-
-    .action-card h2 {
-        font-size: 18px;
-    }
-
-    .action-card p {
-        font-size: 12px;
-    }
-
-    .discover-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media (max-width: 380px) {
-
-    .hero h1 {
-        font-size: 50px;
-    }
-
-    .action-card {
-        padding: 15px;
-    }
-
-    .bottom-nav button {
-        min-width: 48px;
-    }
-
-    .bottom-nav span {
-        font-size: 9px;
-    }
-}
-/* =========================
-   BUILD NAVIGATION BUTTON
-========================= */
-
-.build-icon {
-    width: 26px;
-    height: 26px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 9px;
-
-    background: #17201b;
-    color: white;
-
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1;
-}
-/* =========================
-   CREATE PROJECT FORM
-========================= */
-
-.project-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    margin-top: 28px;
-}
-
-.project-form label {
-    margin-top: 8px;
-
-    color: #27312b;
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.project-form input,
-.project-form textarea {
-    width: 100%;
-
-    padding: 15px;
-
-    border: 1px solid #dfe5e0;
-    border-radius: 15px;
-
-    background: #ffffff;
-
-    color: #17201b;
-
-    font-family: inherit;
-    font-size: 14px;
-
-    outline: none;
-
-    box-sizing: border-box;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.project-form textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.project-form input::placeholder,
-.project-form textarea::placeholder {
-    color: #9aa39d;
-}
-
-.project-form input:focus,
-.project-form textarea:focus {
-    border-color: #16845f;
-
-    box-shadow:
-        0 0 0 3px rgba(22, 132, 95, 0.08);
-}
-
-.project-form .primary-btn {
-    margin-top: 18px;
-}
-/* =========================
-   TEAM MATCHES
-========================= */
-
-.team-results {
-    margin-top: 38px;
-}
-
-.team-results h2 {
-    margin-bottom: 18px;
-    font-size: 24px;
-    letter-spacing: -0.5px;
-}
-
-.team-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-
-    margin-top: 12px;
-    padding: 16px;
-
-    border: 1px solid #e1e6e1;
-    border-radius: 20px;
-
-    background: white;
-
-    box-shadow:
-        0 6px 20px rgba(20, 30, 24, 0.04);
-}
-
-.team-avatar {
-    width: 48px;
-    height: 48px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 15px;
-
-    background: #eef3ef;
-
-    font-size: 24px;
-}
-
-.team-info {
-    flex: 1;
-}
-
-.team-info h3 {
-    font-size: 16px;
-}
-
-.team-info p {
-    margin-top: 3px;
-
-    color: #59645e;
-
-    font-size: 12px;
-}
-
-.team-info span {
-    display: block;
-
-    margin-top: 6px;
-
-    color: #16845f;
-
-    font-size: 10px;
-}
-
-.team-card button {
-    padding: 9px 12px;
-
-    border-radius: 11px;
-
-    background: #17201b;
-    color: white;
-
-    font-size: 11px;
-    font-weight: 700;
-}
-/* =========================================================
-PREMIUM BUILD EXPERIENCE — V2
-========================================================= */
-
-.build-header {
-position: relative;
-
-padding: 28px 4px 14px;
-overflow: hidden;
-
-}
-
-/* =========================
-BUILD BADGE
-========================= */
-
-.build-header::before {
-content: “✦  BUILD SOMETHING GREAT”;
-
-display: inline-flex;
-align-items: center;
-margin-bottom: 16px;
-padding: 7px 12px;
-border: 1px solid rgba(124, 58, 237, 0.18);
-border-radius: 999px;
-background: rgba(124, 58, 237, 0.08);
-color: #6d28d9;
-font-size: 10px;
-font-weight: 800;
-letter-spacing: 1px;
-
-}
-
-/* =========================
-BUILD HEADLINE
-========================= */
-
-.build-header h1 {
-margin-top: 2px;
-
-font-size: clamp(48px, 13vw, 76px);
-line-height: 0.92;
-letter-spacing: -4px;
-background:
-    linear-gradient(
-        110deg,
-        #7c3aed,
-        #2563eb,
-        #06b6d4
-    );
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-
-}
-
-/* =========================
-BUILD SUBTITLE
-========================= */
-
-.build-header .section-subtitle {
-max-width: 560px;
-
-margin-top: 18px;
-color: #69727c;
-font-size: 15px;
-line-height: 1.7;
-
-}
-
-/* =========================================================
-BUILD OPTIONS
-========================================================= */
-
-.build-options {
-display: flex;
-flex-direction: column;
-
-gap: 16px;
-margin-top: 32px;
-
-}
-
-/* =========================
-BUILD CARD
-========================= */
-
-.build-card {
-position: relative;
-
-display: flex;
-align-items: center;
-width: 100%;
-min-height: 120px;
-padding: 20px;
-overflow: hidden;
-text-align: left;
-border: 1px solid rgba(255, 255, 255, 0.65);
-border-left: 4px solid #7c3aed;
-border-radius: 24px;
-background:
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,0.82),
-        rgba(245,247,255,0.72)
-    );
-backdrop-filter: blur(18px);
--webkit-backdrop-filter: blur(18px);
-box-shadow:
-    0 10px 35px rgba(30, 41, 59, 0.07);
-transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-
-}
-
-/* =========================
-COLOURED CARD VARIATIONS
-========================= */
-
-.build-card:nth-child(1) {
-border-left-color: #7c3aed;
-}
-
-.build-card:nth-child(2) {
-border-left-color: #2563eb;
-}
-
-.build-card:nth-child(3) {
-border-left-color: #06b6d4;
-}
-
-/* =========================
-CARD GLOW
-========================= */
-
-.build-card::before {
-content: “”;
-
-position: absolute;
-width: 150px;
-height: 150px;
-right: -70px;
-top: -70px;
-border-radius: 50%;
-background:
-    radial-gradient(
-        circle,
-        rgba(124, 58, 237, 0.14),
-        transparent 70%
-    );
-pointer-events: none;
-
-}
-
-/* =========================
-CARD HOVER
-========================= */
-
-.build-card:hover {
-transform: translateY(-5px);
-
-border-color: rgba(124, 58, 237, 0.25);
-box-shadow:
-    0 20px 45px rgba(30, 41, 59, 0.12);
-
-}
-
-.build-card:active {
-transform: scale(0.975);
-}
-
-/* =========================================================
-BUILD ICON BOX
-========================================================= */
-
-.build-card-icon {
-position: relative;
-
-width: 60px;
-height: 60px;
-flex-shrink: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-right: 17px;
-border-radius: 19px;
-color: white;
-font-size: 27px;
-box-shadow:
-    0 10px 24px rgba(30, 41, 59, 0.15);
-z-index: 1;
-
-}
-
-/* Different gradient for each icon */
-
-.build-card:nth-child(1) .build-card-icon {
-background:
-linear-gradient(
-135deg,
-#7c3aed,
-#a855f7
-);
-}
-
-.build-card:nth-child(2) .build-card-icon {
-background:
-linear-gradient(
-135deg,
-#2563eb,
-#3b82f6
-);
-}
-
-.build-card:nth-child(3) .build-card-icon {
-background:
-linear-gradient(
-135deg,
-#0891b2,
-#06b6d4
-);
-}
-
-/* =========================================================
-BUILD CARD CONTENT
-========================================================= */
-
-.build-card-content {
-position: relative;
-
-flex: 1;
-z-index: 1;
-
-}
-
-.build-card-content h2 {
-color: #17201b;
-
-font-size: 18px;
-letter-spacing: -0.5px;
-
-}
-
-.build-card-content p {
-max-width: 450px;
-
-margin-top: 7px;
-color: #69727c;
-font-size: 12px;
-line-height: 1.55;
-
-}
-
-/* =========================================================
-CARD ARROW
-========================================================= */
-
-.card-arrow {
-position: relative;
-
-margin-left: 10px;
-color: #7c3aed;
-font-size: 25px;
-transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-
-}
-
-.build-card:hover .card-arrow {
-transform: translateX(6px);
-
-opacity: 0.7;
-
-}
-
-/* =========================================================
-BUILD TIP
-========================================================= */
-
-.build-tip {
-position: relative;
-
-display: flex;
-align-items: flex-start;
-gap: 14px;
-margin-top: 25px;
-padding: 20px;
-overflow: hidden;
-border: 1px solid rgba(255,255,255,0.12);
-border-radius: 23px;
-background:
-    linear-gradient(
-        135deg,
-        #171329,
-        #172554
-    );
-color: white;
-box-shadow:
-    0 15px 40px rgba(30, 41, 59, 0.16);
-
-}
-
-/* Glow inside tip */
-
-.build-tip::before {
-content: “”;
-
-position: absolute;
-width: 180px;
-height: 180px;
-right: -70px;
-bottom: -100px;
-border-radius: 50%;
-background:
-    radial-gradient(
-        circle,
-        rgba(96,165,250,0.35),
-        transparent 70%
-    );
-
-}
-
-.build-tip > span {
-position: relative;
-
-width: 42px;
-height: 42px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
-border-radius: 14px;
-background:
-    linear-gradient(
-        135deg,
-        #7c3aed,
-        #2563eb
-    );
-font-size: 20px;
-
-}
-
-.build-tip strong {
-position: relative;
-
-font-size: 14px;
-
-}
-
-.build-tip p {
-position: relative;
-
-margin-top: 6px;
-color: #cbd5e1;
-font-size: 12px;
-line-height: 1.6;
-
-}
-
-/* =========================================================
-PREMIUM PROJECT FORM
-========================================================= */
-
-.project-form {
-position: relative;
-
-margin-top: 30px;
-padding: 23px;
-overflow: hidden;
-border: 1px solid rgba(255,255,255,0.7);
-border-left: 4px solid #7c3aed;
-border-radius: 25px;
-background:
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,0.86),
-        rgba(245,247,255,0.78)
-    );
-backdrop-filter: blur(18px);
--webkit-backdrop-filter: blur(18px);
-box-shadow:
-    0 12px 35px rgba(30, 41, 59, 0.08);
-
-}
-
-.project-form::before {
-content: “”;
-
-position: absolute;
-width: 180px;
-height: 180px;
-right: -90px;
-top: -90px;
-border-radius: 50%;
-background:
-    radial-gradient(
-        circle,
-        rgba(124,58,237,0.12),
-        transparent 70%
-    );
-pointer-events: none;
-
-}
-
-.project-form label {
-position: relative;
-
-color: #17201b;
-font-size: 13px;
-font-weight: 800;
-
-}
-
-.project-form input,
-.project-form textarea {
-position: relative;
-
-width: 100%;
-padding: 15px;
-border: 1px solid #dce4ef;
-border-radius: 15px;
-background: rgba(255,255,255,0.82);
-color: #17201b;
-font-family: inherit;
-font-size: 14px;
-outline: none;
-transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-
-}
-
-.project-form input:focus,
-.project-form textarea:focus {
-border-color: #7c3aed;
-
-box-shadow:
-    0 0 0 4px rgba(124,58,237,0.10);
-transform: translateY(-1px);
-
-}
-
-/* =========================================================
-PRIMARY BUTTON
-========================================================= */
-
-.primary-btn {
-position: relative;
-
-width: 100%;
-min-height: 54px;
-padding: 14px 18px;
-border-radius: 16px;
-background:
-    linear-gradient(
-        110deg,
-        #7c3aed,
-        #2563eb
-    );
-color: white;
-font-size: 14px;
-font-weight: 800;
-box-shadow:
-    0 10px 25px rgba(79,70,229,0.22);
-transition:
-    transform 0.2s ease,
-    opacity 0.2s ease,
-    box-shadow 0.2s ease;
-
-}
-
-.primary-btn:hover {
-opacity: 0.88;
-
-box-shadow:
-    0 14px 32px rgba(79,70,229,0.28);
-
-}
-
-.primary-btn:active {
-transform: scale(0.97);
-}
-
-/* =========================================================
-TEAM RESULTS
-========================================================= */
-
-.team-results {
-margin-top: 32px;
-}
-
-.team-results h2 {
-color: #17201b;
-
-font-size: 24px;
-letter-spacing: -0.7px;
-
-}
-
-.team-card {
-position: relative;
-
-display: flex;
-align-items: center;
-gap: 14px;
-margin-top: 13px;
-padding: 16px;
-border: 1px solid rgba(255,255,255,0.7);
-border-left: 4px solid #2563eb;
-border-radius: 20px;
-background:
-    rgba(255,255,255,0.75);
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(15px);
-box-shadow:
-    0 8px 25px rgba(30,41,59,0.07);
-transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-
-}
-
-.team-card:hover {
-transform: translateY(-3px);
-
-box-shadow:
-    0 14px 32px rgba(30,41,59,0.10);
-
-}
-
-.team-avatar {
-width: 50px;
-height: 50px;
-
-flex-shrink: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 16px;
-background:
-    linear-gradient(
-        135deg,
-        #ede9fe,
-        #dbeafe
-    );
-font-size: 24px;
-
-}
-
-.team-info {
-flex: 1;
-}
-
-.team-info h3 {
-color: #17201b;
-
-font-size: 16px;
-
-}
-
-.team-info p {
-margin-top: 3px;
-
-color: #69727c;
-font-size: 12px;
-
-}
-
-.team-info span {
-display: block;
-
-margin-top: 6px;
-color: #2563eb;
-font-size: 10px;
-font-weight: 800;
-
-}
-
-.team-card button {
-padding: 9px 13px;
-
-border-radius: 11px;
-background:
-    linear-gradient(
-        110deg,
-        #7c3aed,
-        #2563eb
-    );
-color: white;
-font-size: 11px;
-font-weight: 800;
-transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-
-}
-
-.team-card button:hover {
-opacity: 0.82;
-}
-
-.team-card button:active {
-transform: scale(0.95);
-}
-
-/* =========================================================
-SUBTLE GRAIN TEXTURE
-========================================================= */
-
-#projects::after {
-content: “”;
-
-position: fixed;
-inset: 0;
-z-index: -1;
-pointer-events: none;
-opacity: 0.025;
-background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
-
-}
-
-/* =========================================================
-BUILD MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-.build-header {
-    padding-top: 20px;
-}
-.build-header h1 {
-    font-size: 52px;
-    letter-spacing: -3px;
-}
-.build-header .section-subtitle {
-    font-size: 14px;
-}
-.build-options {
-    gap: 13px;
-    margin-top: 27px;
-}
-.build-card {
-    min-height: 108px;
-    padding: 16px;
-    border-radius: 21px;
-}
-.build-card-icon {
-    width: 52px;
-    height: 52px;
-    margin-right: 13px;
-    border-radius: 16px;
-    font-size: 23px;
-}
-.build-card-content h2 {
-    font-size: 16px;
-}
-.build-card-content p {
-    font-size: 11px;
-}
-.card-arrow {
-    font-size: 21px;
-}
-.build-tip {
-    padding: 17px;
-    border-radius: 20px;
-}
-.project-form {
-    padding: 18px;
-    border-radius: 21px;
-}
-.primary-btn {
-    min-height: 52px;
-}
-
-}
-
-/* =========================================================
-LOW-CONTRAST DARK BUILD MODE
-========================================================= */
-
-@media (prefers-color-scheme: dark) {
-
-#projects {
-    color: #e5e7eb;
-}
-#projects .build-header h1 {
     background:
         linear-gradient(
-            110deg,
-            #a78bfa,
-            #60a5fa,
-            #67e8f9
+            90deg,
+            #7c3aed,
+            #2563eb,
+            #06b6d4
         );
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
 }
-#projects .build-header .section-subtitle {
-    color: #9ca3af;
+.hero-text {
+    max-width: 570px;
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.7;
 }
-#projects .build-card {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(30,41,59,0.82),
-            rgba(23,37,84,0.68)
-        );
-    border-color: rgba(255,255,255,0.08);
+/* =========================================================
+   5. SEARCH
+   ========================================================= */
+.search-section {
+    margin-top: 22px;
+    margin-bottom: 28px;
 }
-#projects .build-card-content h2 {
-    color: #f1f5f9;
+.search-section h2 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 800;
 }
-#projects .build-card-content p {
+.search-box {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.06);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 14px;
+    border: none;
+    background: transparent;
+    color: #17201b;
+    font-size: 14px;
+}
+.search-box input::placeholder {
     color: #94a3b8;
 }
-
-}
-/* ========================================
-   PREMIUM + COLOURFUL BUILD EXPERIENCE
-======================================== */
-
-/* Build page background */
-
-#projects {
-    position: relative;
-}
-
-
-/* Build heading */
-
-#projects .build-header {
-    padding: 24px 4px 8px;
-}
-
-#projects .build-header .eyebrow {
-    color: #16845f;
-    font-weight: 900;
-}
-
-#projects .build-header h1 {
-    font-size: clamp(46px, 13vw, 72px);
-    letter-spacing: -4px;
-    color: #17201b;
-}
-
-#projects .build-header .section-subtitle {
-    color: #69746d;
-}
-
-
-/* ========================================
-   BUILD CARDS
-======================================== */
-
-#projects .build-options {
-    gap: 16px;
-    margin-top: 30px;
-}
-
-
-/* Base card */
-
-#projects .build-card {
-    position: relative;
-
-    min-height: 125px;
-
-    padding: 22px;
-
-    overflow: hidden;
-
-    border: none;
-    border-radius: 26px;
-
-    color: #17201b;
-
-    box-shadow:
-        0 12px 30px rgba(20, 30, 24, 0.08);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-/* Decorative glow */
-
-#projects .build-card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 120px;
-    height: 120px;
-
-    right: -35px;
-    top: -40px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.35);
-
-    pointer-events: none;
-}
-
-
-/* Hover */
-
-#projects .build-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 20px 40px rgba(20, 30, 24, 0.13);
-}
-
-#projects .build-card:active {
-    transform: scale(0.97);
-}
-
-
-/* ========================================
-   CREATE PROJECT
-======================================== */
-
-#projects .build-card:nth-child(1) {
-
-    background:
-        linear-gradient(
-            135deg,
-            #dff8ed,
-            #bcebd8
-        );
-}
-
-#projects .build-card:nth-child(1) .build-card-icon {
-
-    background:
-        linear-gradient(
-            135deg,
-            #16845f,
-            #0d6b4c
-        );
-
-    box-shadow:
-        0 10px 22px rgba(22,132,95,0.25);
-}
-
-
-/* ========================================
-   BUILD YOUR TEAM
-======================================== */
-
-#projects .build-card:nth-child(2) {
-
-    background:
-        linear-gradient(
-            135deg,
-            #e8e1ff,
-            #d1c5ff
-        );
-}
-
-#projects .build-card:nth-child(2) .build-card-icon {
-
-    background:
-        linear-gradient(
-            135deg,
-            #7057d9,
-            #5741b8
-        );
-
-    box-shadow:
-        0 10px 22px rgba(112,87,217,0.25);
-}
-
-
-/* ========================================
-   HACKATHONS
-======================================== */
-
-#projects .build-card:nth-child(3) {
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff0d7,
-            #ffdca8
-        );
-}
-
-#projects .build-card:nth-child(3) .build-card-icon {
-
-    background:
-        linear-gradient(
-            135deg,
-            #f29b38,
-            #db7412
-        );
-
-    box-shadow:
-        0 10px 22px rgba(242,155,56,0.28);
-}
-
-
-/* ========================================
-   ICONS
-======================================== */
-
-#projects .build-card-icon {
-
-    position: relative;
-    z-index: 2;
-
-    width: 60px;
-    height: 60px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-right: 17px;
-
-    border-radius: 19px;
-
-    color: white;
-
-    font-size: 28px;
-}
-
-
-/* ========================================
-   CARD TEXT
-======================================== */
-
-#projects .build-card-content {
-    position: relative;
-    z-index: 2;
-}
-
-#projects .build-card-content h2 {
-
-    font-size: 18px;
-
-    letter-spacing: -0.5px;
-
-    color: #17201b;
-}
-
-#projects .build-card-content p {
-
-    margin-top: 6px;
-
-    max-width: 420px;
-
-    color: #4f5c54;
-
-    font-size: 12px;
-
-    line-height: 1.55;
-}
-
-
-/* ========================================
-   ARROWS
-======================================== */
-
-#projects .card-arrow {
-
-    position: relative;
-    z-index: 2;
-
-    color: #17201b;
-
-    font-size: 27px;
-
-    font-weight: 300;
-}
-
-#projects .build-card:hover .card-arrow {
-    transform: translateX(6px);
-}
-
-
-/* ========================================
-   BUILD TIP
-======================================== */
-
-#projects .build-tip {
-
-    position: relative;
-
-    margin-top: 25px;
-
-    padding: 20px;
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #17201b,
-            #26362d
-        );
-
-    color: white;
-
-    box-shadow:
-        0 15px 35px rgba(23,32,27,0.16);
-
-    overflow: hidden;
-}
-
-
-/* Tip glow */
-
-#projects .build-tip::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 130px;
-    height: 130px;
-
-    right: -45px;
-    top: -60px;
-
-    border-radius: 50%;
-
-    background: rgba(22,132,95,0.25);
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 600px) {
-
-    #projects .build-card {
-
-        min-height: 118px;
-
-        padding: 17px;
-
-        border-radius: 23px;
-    }
-
-    #projects .build-card-icon {
-
-        width: 52px;
-        height: 52px;
-
-        margin-right: 13px;
-
-        border-radius: 17px;
-
-        font-size: 24px;
-    }
-
-    #projects .build-card-content h2 {
-        font-size: 16px;
-    }
-
-    #projects .build-card-content p {
-        font-size: 11px;
-    }
-
-    #projects .card-arrow {
-        font-size: 22px;
-    }
-}
-/* =========================================================
-BUILD CARD — EXTRA PREMIUM EFFECTS
-========================================================= */
-
-.build-card {
-isolation: isolate;
-}
-
-/* Colored glow behind each card */
-
-.build-card:nth-child(1)::after,
-.build-card:nth-child(2)::after,
-.build-card:nth-child(3)::after {
-content: “”;
-
-position: absolute;
-width: 130px;
-height: 130px;
-right: -45px;
-bottom: -65px;
-border-radius: 50%;
-filter: blur(25px);
-opacity: 0.45;
-z-index: -1;
-transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
-
-}
-
-.build-card:nth-child(1)::after {
-background: #8b5cf6;
-}
-
-.build-card:nth-child(2)::after {
-background: #3b82f6;
-}
-
-.build-card:nth-child(3)::after {
-background: #06b6d4;
-}
-
-/* Glow becomes stronger when touched */
-
-.build-card:hover::after {
-transform: scale(1.35);
-
-opacity: 0.7;
-
-}
-
-/* =========================================================
-TOP ACCENT LINE
-========================================================= */
-
-.build-card:nth-child(1) {
-border-top: 1px solid rgba(139, 92, 246, 0.28);
-}
-
-.build-card:nth-child(2) {
-border-top: 1px solid rgba(59, 130, 246, 0.28);
-}
-
-.build-card:nth-child(3) {
-border-top: 1px solid rgba(6, 182, 212, 0.28);
-}
-
-/* =========================================================
-ICON BOX — PREMIUM DEPTH
-========================================================= */
-
-.build-card-icon {
-position: relative;
-
-overflow: hidden;
-
-}
-
-.build-card-icon::before {
-content: “”;
-
-position: absolute;
-width: 70px;
-height: 70px;
-top: -35px;
-right: -30px;
-border-radius: 50%;
-background: rgba(255,255,255,0.18);
-transition:
-    transform 0.3s ease;
-
-}
-
-.build-card:hover .build-card-icon::before {
-transform: scale(1.5);
-}
-
-/* =========================================================
-ICON HOVER
-========================================================= */
-
-.build-card:hover .build-card-icon {
-transform: rotate(-3deg) scale(1.06);
-
-box-shadow:
-    0 14px 30px rgba(79,70,229,0.22);
-
-}
-
-/* =========================================================
-CARD TEXT HOVER
-========================================================= */
-
-.build-card:hover .build-card-content h2 {
-background:
-linear-gradient(
-90deg,
-#7c3aed,
-#2563eb
-);
-
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-
-}
-
-/* =========================================================
-ARROW CIRCLE
-========================================================= */
-
-.card-arrow {
-width: 34px;
-height: 34px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
-border-radius: 50%;
-background: rgba(124,58,237,0.08);
-font-size: 19px;
-
-}
-
-/* Different arrow colors */
-
-.build-card:nth-child(1) .card-arrow {
-color: #7c3aed;
-background: rgba(124,58,237,0.09);
-}
-
-.build-card:nth-child(2) .card-arrow {
-color: #2563eb;
-background: rgba(37,99,235,0.09);
-}
-
-.build-card:nth-child(3) .card-arrow {
-color: #0891b2;
-background: rgba(6,182,212,0.09);
-}
-
-/* =========================================================
-MOBILE TOUCH FEEDBACK
-========================================================= */
-
-@media (max-width: 600px) {
-
-.build-card:active {
-    transform: scale(0.965);
-    box-shadow:
-        0 8px 25px rgba(30,41,59,0.12);
-}
-.build-card:active .build-card-icon {
-    transform: scale(0.96);
-}
-
-}
-/* =========================================================
-INTER — PREMIUM TYPOGRAPHY
-========================================================= */
-
-body,
-button,
-input,
-textarea {
-font-family: “Inter”,
--apple-system,
-BlinkMacSystemFont,
-“Segoe UI”,
-sans-serif;
-}
-
-/* BUILD TYPOGRAPHY */
-
-#projects .eyebrow {
-font-family: “Inter”, sans-serif;
-
-font-weight: 800;
-letter-spacing: 1.6px;
-
-}
-
-#projects .build-header h1 {
-font-family: “Inter”, sans-serif;
-
-font-weight: 800;
-letter-spacing: -4px;
-
-}
-
-#projects .build-header .section-subtitle {
-font-family: “Inter”, sans-serif;
-
-font-weight: 400;
-letter-spacing: -0.1px;
-
-}
-
-#projects .build-card-content h2 {
-font-family: “Inter”, sans-serif;
-
-font-weight: 700;
-letter-spacing: -0.5px;
-
-}
-
-#projects .build-card-content p {
-font-family: “Inter”, sans-serif;
-
-font-weight: 400;
-letter-spacing: -0.05px;
-
-}
-
-#projects .build-tip {
-font-family: “Inter”, sans-serif;
-}
-
-/* FORM TYPOGRAPHY */
-
-#createProject,
-#teamBuilder {
-font-family: “Inter”, sans-serif;
-}
-
-#createProject h1,
-#teamBuilder h1 {
-font-family: “Inter”, sans-serif;
-
-font-weight: 800;
-letter-spacing: -3px;
-
-}
-
-.project-form label {
-font-family: “Inter”, sans-serif;
-
-font-weight: 700;
-
-}
-
-.project-form input,
-.project-form textarea {
-font-family: “Inter”, sans-serif;
-}
-
-.primary-btn {
-font-family: “Inter”, sans-serif;
-
-font-weight: 700;
-
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-#projects .build-header h1 {
-    letter-spacing: -3px;
-}
-#createProject h1,
-#teamBuilder h1 {
-    letter-spacing: -2.5px;
-}
-
-}
-// =========================
-// LUCIDE ICONS
-// =========================
-
-document.addEventListener("DOMContentLoaded", function() {
-    lucide.createIcons();
-});
-/* =========================
-   LUCIDE BUILD ICONS
-========================= */
-
-.build-card-icon svg {
-    width: 28px;
-    height: 28px;
-
-    stroke-width: 2;
-}
-
-.build-tip > span svg {
-    width: 21px;
-    height: 21px;
-}
- /* =========================================================
-   BUILD PROCESS — IDEA → TEAM → BUILD
-========================================================= */
-
-.build-process {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 24px;
-    margin-bottom: 6px;
-}
-
-.process-box {
-    width: 82px;
-    min-height: 82px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    gap: 7px;
-
-    border: 1px solid rgba(255,255,255,0.7);
-    border-radius: 19px;
-
-    background:
-        rgba(255,255,255,0.65);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    box-shadow:
-        0 7px 22px rgba(30,41,59,0.06);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.process-box:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 28px rgba(30,41,59,0.10);
-}
-
-.process-icon {
-    width: 36px;
-    height: 36px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 12px;
-
+.search-box button {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
     background:
         linear-gradient(
             135deg,
             #7c3aed,
             #2563eb
         );
-
+    color: white;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+.search-box button:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+.search-box button:active {
+    transform: scale(0.94);
+}
+/* =========================================================
+   6. MAIN ACTION CARDS
+   ========================================================= */
+.action-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+.action-card {
+    position: relative;
+    min-height: 155px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 22px;
+    background:
+        rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        opacity 0.22s ease;
+}
+.action-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 18px 38px rgba(15, 23, 42, 0.10);
+}
+.action-card:active {
+    transform: scale(0.98);
+    opacity: 0.88;
+}
+.action-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.12),
+            rgba(37, 99, 235, 0.12)
+        );
+    font-size: 21px;
+}
+.action-card h2 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 800;
+}
+.action-card p {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+/* =========================================================
+   7. DISCOVER
+   ========================================================= */
+.discover {
+    margin-top: 34px;
+}
+.discover h2 {
+    margin-bottom: 14px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.discover-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+.discover-grid button {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    color: #17201b;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+.discover-grid button:hover {
+    transform: translateY(-2px);
+}
+.discover-grid button:active {
+    opacity: 0.75;
+    transform: scale(0.98);
+}
+/* =========================================================
+   8. INNER SCREENS
+   ========================================================= */
+.screen > h1 {
+    margin-top: 18px;
+    font-size: 34px;
+    letter-spacing: -1.5px;
+    font-weight: 800;
+}
+.section-subtitle {
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 13px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    color: #475569;
+    font-size: 13px;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+.back-btn:hover {
+    transform: translateX(-2px);
+}
+.back-btn:active {
+    opacity: 0.7;
+}
+/* =========================================================
+   9. PLACEHOLDER CARDS
+   ========================================================= */
+.placeholder-card {
+    margin-top: 24px;
+    padding: 30px 22px;
+    text-align: center;
+    border-radius: 24px;
+    background:
+        rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.06);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+.placeholder-card > span {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 42px;
+}
+.placeholder-card h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.placeholder-card p {
+    max-width: 450px;
+    margin: 0 auto;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+/* =========================================================
+   10. PREMIUM BUILD HEADER
+   ========================================================= */
+.build-header {
+    position: relative;
+    padding: 28px 8px 10px;
+    overflow: hidden;
+}
+.build-header::before {
+    content: "✦  BUILD SOMETHING GREAT";
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.10),
+            rgba(37, 99, 235, 0.10)
+        );
+    border: 1px solid rgba(124, 58, 237, 0.12);
+    color: #6d28d9;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+.build-header h1 {
+    font-size: clamp(42px, 10vw, 64px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    font-weight: 800;
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #2563eb,
+            #06b6d4
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.build-header .section-subtitle {
+    max-width: 600px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+/* =========================================================
+   11. BUILD PROCESS
+   ========================================================= */
+.build-process {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+    margin-bottom: 18px;
+}
+.process-box {
+    width: 82px;
+    min-height: 82px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 19px;
+    background:
+        rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 7px 22px rgba(30, 41, 59, 0.06);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.process-box:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 28px rgba(30, 41, 59, 0.10);
+}
+.process-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #2563eb
+        );
     color: white;
 }
-
 .process-icon svg {
     width: 18px;
     height: 18px;
+    stroke-width: 2;
 }
-
 .process-box span {
     color: #59636e;
-
     font-size: 10px;
     font-weight: 800;
-
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
-
 .process-line {
     width: 18px;
     height: 1px;
-
     background:
         linear-gradient(
             90deg,
             #a78bfa,
             #60a5fa
         );
-
     opacity: 0.7;
 }
-
-
-/* MOBILE */
-
+/* =========================================================
+   12. BUILD OPTIONS
+   ========================================================= */
+.build-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 18px;
+}
+.build-card {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    overflow: hidden;
+    text-align: left;
+    border-radius: 22px;
+    background:
+        rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-left: 4px solid #7c3aed;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.07);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.25s ease;
+}
+.build-card:nth-child(2) {
+    border-left-color: #2563eb;
+}
+.build-card:nth-child(3) {
+    border-left-color: #06b6d4;
+}
+.build-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 140px;
+    height: 140px;
+    right: -65px;
+    top: -55px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.13),
+            transparent 70%
+        );
+    pointer-events: none;
+}
+.build-card:nth-child(2)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.13),
+            transparent 70%
+        );
+}
+.build-card:nth-child(3)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(6, 182, 212, 0.13),
+            transparent 70%
+        );
+}
+.build-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    opacity: 0.75;
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #2563eb,
+            #06b6d4
+        );
+    pointer-events: none;
+}
+.build-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 20px 42px rgba(15, 23, 42, 0.11);
+}
+.build-card:active {
+    transform: scale(0.985);
+    opacity: 0.82;
+}
+/* =========================================================
+   13. BUILD CARD ICONS
+   ========================================================= */
+.build-card-icon {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    color: white;
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.12);
+    transition:
+        transform 0.25s ease;
+}
+.build-card:nth-child(1) .build-card-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #8b5cf6
+        );
+}
+.build-card:nth-child(2) .build-card-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+}
+.build-card:nth-child(3) .build-card-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #0891b2,
+            #06b6d4
+        );
+}
+.build-card:hover .build-card-icon {
+    transform: rotate(-4deg) scale(1.06);
+}
+.build-card-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 2;
+}
+/* =========================================================
+   14. BUILD CARD CONTENT
+   ========================================================= */
+.build-card-content {
+    flex: 1;
+    min-width: 0;
+}
+.build-card-content h2 {
+    margin-bottom: 5px;
+    color: #17201b;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+}
+.build-card-content p {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.55;
+    transition:
+        color 0.2s ease;
+}
+.build-card:hover .build-card-content p {
+    color: #475569;
+}
+/* =========================================================
+   15. BUILD CARD ARROW
+   ========================================================= */
+.card-arrow {
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.08);
+    color: #7c3aed;
+    font-size: 20px;
+    font-weight: 700;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+.build-card:nth-child(2) .card-arrow {
+    background: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+}
+.build-card:nth-child(3) .card-arrow {
+    background: rgba(6, 182, 212, 0.08);
+    color: #0891b2;
+}
+.build-card:hover .card-arrow {
+    transform: translateX(4px);
+}
+/* =========================================================
+   16. BUILD TIP
+   ========================================================= */
+.build-tip {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-top: 20px;
+    padding: 17px;
+    border-radius: 18px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.07),
+            rgba(37, 99, 235, 0.07)
+        );
+    border: 1px solid rgba(124, 58, 237, 0.10);
+}
+.build-tip > span {
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+}
+.build-tip strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 800;
+}
+.build-tip p {
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.6;
+}
+.build-tip > span svg {
+    width: 21px;
+    height: 21px;
+}
+/* =========================================================
+   17. PROJECT FORM
+   ========================================================= */
+.project-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 24px;
+    padding: 22px;
+    border-radius: 24px;
+    background:
+        rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+.project-form label {
+    margin-top: 8px;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 800;
+}
+.project-form input,
+.project-form textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 13px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.82);
+    color: #17201b;
+    font-size: 13px;
+    resize: vertical;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.project-form input:focus,
+.project-form textarea:focus {
+    border-color: rgba(124, 58, 237, 0.45);
+    box-shadow:
+        0 0 0 4px rgba(124, 58, 237, 0.08);
+}
+.project-form input::placeholder,
+.project-form textarea::placeholder {
+    color: #94a3b8;
+}
+/* =========================================================
+   18. PRIMARY BUTTON
+   ========================================================= */
+.primary-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #2563eb
+        );
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow:
+        0 10px 22px rgba(79, 70, 229, 0.20);
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 14px 28px rgba(79, 70, 229, 0.25);
+}
+.primary-btn:active {
+    transform: scale(0.98);
+    opacity: 0.82;
+}
+/* =========================================================
+   19. TEAM RESULTS
+   ========================================================= */
+.team-results {
+    margin-top: 28px;
+}
+.team-results h2 {
+    margin-bottom: 16px;
+    font-size: 21px;
+    letter-spacing: -0.5px;
+}
+.team-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 12px;
+    padding: 15px;
+    border-radius: 19px;
+    background:
+        rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+.team-avatar {
+    flex: 0 0 auto;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.10),
+            rgba(37, 99, 235, 0.10)
+        );
+    font-size: 22px;
+}
+.team-info {
+    flex: 1;
+    min-width: 0;
+}
+.team-info h3 {
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: 800;
+}
+.team-info p {
+    margin-bottom: 3px;
+    color: #475569;
+    font-size: 11px;
+}
+.team-info span {
+    color: #94a3b8;
+    font-size: 9px;
+}
+.team-card button {
+    flex: 0 0 auto;
+    padding: 9px 11px;
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #2563eb
+        );
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+.team-card button:hover {
+    transform: translateY(-1px);
+}
+.team-card button:active {
+    opacity: 0.75;
+    transform: scale(0.96);
+}
+/* =========================================================
+   20. GRAIN / TEXTURE
+   ========================================================= */
+#projects {
+    position: relative;
+    isolation: isolate;
+}
+#projects::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+/* =========================================================
+   21. BOTTOM NAVIGATION
+   ========================================================= */
+.bottom-nav {
+    position: fixed;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 24px);
+    max-width: 650px;
+    height: 66px;
+    display: grid;
+    grid-template-columns:
+        repeat(5, 1fr);
+    align-items: center;
+    padding: 6px;
+    border-radius: 22px;
+    background:
+        rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.13);
+}
+.bottom-nav button {
+    height: 54px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border-radius: 16px;
+    background: transparent;
+    color: #64748b;
+    font-size: 15px;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+.bottom-nav button span:not(.build-icon) {
+    font-size: 9px;
+    font-weight: 700;
+}
+.bottom-nav button:hover {
+    color: #7c3aed;
+    background:
+        rgba(124, 58, 237, 0.06);
+}
+.bottom-nav button:active {
+    transform: scale(0.93);
+}
+.build-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1px;
+    border-radius: 13px;
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #2563eb
+        );
+    color: white;
+    font-size: 22px;
+    line-height: 1;
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.22);
+}
+/* =========================================================
+   22. MOBILE
+   ========================================================= */
 @media (max-width: 600px) {
-
+    main {
+        padding:
+            20px
+            16px
+            35px;
+    }
+    .hero {
+        padding-top: 28px;
+    }
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: -3px;
+    }
+    .action-grid {
+        gap: 10px;
+    }
+    .action-card {
+        min-height: 145px;
+        padding: 16px;
+        border-radius: 19px;
+    }
+    .action-card h2 {
+        font-size: 16px;
+    }
+    .action-card p {
+        font-size: 11px;
+    }
+    .discover-grid {
+        gap: 8px;
+    }
+    .discover-grid button {
+        min-height: 54px;
+        padding: 12px;
+        font-size: 12px;
+    }
+    .build-header {
+        padding-top: 22px;
+    }
+    .build-header h1 {
+        font-size: 46px;
+    }
     .build-process {
         gap: 6px;
-
         justify-content: space-between;
     }
-
     .process-box {
         width: 29%;
-
         min-height: 76px;
-
         border-radius: 17px;
     }
-
     .process-line {
         width: 12px;
     }
-}  
+    .build-card {
+        padding: 16px;
+        gap: 12px;
+        border-radius: 19px;
+    }
+    .build-card-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+    }
+    .build-card-icon svg {
+        width: 23px;
+        height: 23px;
+    }
+    .build-card-content h2 {
+        font-size: 15px;
+    }
+    .build-card-content p {
+        font-size: 11px;
+    }
+    .card-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 17px;
+    }
+    .build-tip {
+        padding: 14px;
+    }
+    .project-form {
+        padding: 18px;
+    }
+    .team-card {
+        align-items: flex-start;
+    }
+    .team-card button {
+        margin-left: auto;
+    }
+}
+/* =========================================================
+   23. SMALL PHONES
+   ========================================================= */
+@media (max-width: 380px) {
+    .topbar {
+        padding: 0 14px;
+    }
+    .logo strong {
+        font-size: 15px;
+    }
+    main {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+    .hero h1 {
+        font-size: 45px;
+    }
+    .action-card {
+        min-height: 135px;
+        padding: 14px;
+    }
+    .action-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 15px;
+    }
+    .build-header h1 {
+        font-size: 40px;
+    }
+    .build-card {
+        gap: 9px;
+        padding: 13px;
+    }
+    .build-card-icon {
+        width: 42px;
+        height: 42px;
+    }
+    .build-card-content h2 {
+        font-size: 14px;
+    }
+    .build-card-content p {
+        font-size: 10px;
+    }
+    .card-arrow {
+        width: 29px;
+        height: 29px;
+    }
+    .bottom-nav {
+        width: calc(100% - 16px);
+        bottom: 8px;
+        height: 62px;
+        border-radius: 19px;
+    }
+    .bottom-nav button {
+        height: 50px;
+    }
+    .build-icon {
+        width: 33px;
+        height: 33px;
+    }
+}
+/* =========================================================
+   24. LOW-CONTRAST DARK MODE
+   ========================================================= */
+@media (prefers-color-scheme: dark) {
+    body {
+        background:
+            radial-gradient(
+                circle at 20% 0%,
+                rgba(124, 58, 237, 0.12),
+                transparent 30%
+            ),
+            #111418;
+        color: #e5e7eb;
+    }
+    .topbar {
+        background: rgba(17, 20, 24, 0.86);
+        border-bottom-color:
+            rgba(255, 255, 255, 0.06);
+    }
+    .logo strong {
+        color: #f8fafc;
+    }
+    .profile-btn {
+        background: #1b2026;
+        border-color:
+            rgba(255, 255, 255, 0.07);
+    }
+    .hero h1,
+    .action-card h2,
+    .build-card-content h2,
+    .screen > h1,
+    .discover h2 {
+        color: #f1f5f9;
+    }
+    .hero-text,
+    .section-subtitle,
+    .action-card p,
+    .build-card-content p,
+    .discover-grid button,
+    .build-tip p,
+    .team-info p {
+        color: #94a3b8;
+    }
+    .search-box,
+    .action-card,
+    .discover-grid button,
+    .placeholder-card,
+    .build-card,
+    .project-form,
+    .team-card,
+    .process-box {
+        background:
+            rgba(24, 29, 35, 0.78);
+        border-color:
+            rgba(255, 255, 255, 0.06);
+    }
+    .search-box input {
+        color: #f8fafc;
+    }
+    .search-section h2 {
+        color: #e2e8f0;
+    }
+    .back-btn {
+        background: #1b2026;
+        color: #cbd5e1;
+        border-color:
+            rgba(255, 255, 255, 0.06);
+    }
+    .project-form label {
+        color: #cbd5e1;
+    }
+    .project-form input,
+    .project-form textarea {
+        background: #151a1f;
+        color: #f8fafc;
+        border-color:
+            rgba(255, 255, 255, 0.08);
+    }
+    .project-form input::placeholder,
+    .project-form textarea::placeholder {
+        color: #64748b;
+    }
+    .build-tip {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(124, 58, 237, 0.10),
+                rgba(37, 99, 235, 0.08)
+            );
+        border-color:
+            rgba(124, 58, 237, 0.14);
+    }
+    .build-tip strong {
+        color: #e2e8f0;
+    }
+    .process-box {
+        border-color:
+            rgba(255, 255, 255, 0.06);
+    }
+    .process-box span {
+        color: #94a3b8;
+    }
+    .bottom-nav {
+        background:
+            rgba(17, 20, 24, 0.90);
+        border-color:
+            rgba(255, 255, 255, 0.07);
+    }
+    .bottom-nav button {
+        color: #94a3b8;
+    }
+    .team-info h3 {
+        color: #f1f5f9;
+    }
+}
