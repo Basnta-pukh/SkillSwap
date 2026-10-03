@@ -1847,4 +1847,181 @@ LOW-CONTRAST DARK BUILD MODE
         font-size: 22px;
     }
 }
+/* =========================================================
+BUILD CARD — EXTRA PREMIUM EFFECTS
+========================================================= */
 
+.build-card {
+isolation: isolate;
+}
+
+/* Colored glow behind each card */
+
+.build-card:nth-child(1)::after,
+.build-card:nth-child(2)::after,
+.build-card:nth-child(3)::after {
+content: “”;
+
+position: absolute;
+width: 130px;
+height: 130px;
+right: -45px;
+bottom: -65px;
+border-radius: 50%;
+filter: blur(25px);
+opacity: 0.45;
+z-index: -1;
+transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+
+}
+
+.build-card:nth-child(1)::after {
+background: #8b5cf6;
+}
+
+.build-card:nth-child(2)::after {
+background: #3b82f6;
+}
+
+.build-card:nth-child(3)::after {
+background: #06b6d4;
+}
+
+/* Glow becomes stronger when touched */
+
+.build-card:hover::after {
+transform: scale(1.35);
+
+opacity: 0.7;
+
+}
+
+/* =========================================================
+TOP ACCENT LINE
+========================================================= */
+
+.build-card:nth-child(1) {
+border-top: 1px solid rgba(139, 92, 246, 0.28);
+}
+
+.build-card:nth-child(2) {
+border-top: 1px solid rgba(59, 130, 246, 0.28);
+}
+
+.build-card:nth-child(3) {
+border-top: 1px solid rgba(6, 182, 212, 0.28);
+}
+
+/* =========================================================
+ICON BOX — PREMIUM DEPTH
+========================================================= */
+
+.build-card-icon {
+position: relative;
+
+overflow: hidden;
+
+}
+
+.build-card-icon::before {
+content: “”;
+
+position: absolute;
+width: 70px;
+height: 70px;
+top: -35px;
+right: -30px;
+border-radius: 50%;
+background: rgba(255,255,255,0.18);
+transition:
+    transform 0.3s ease;
+
+}
+
+.build-card:hover .build-card-icon::before {
+transform: scale(1.5);
+}
+
+/* =========================================================
+ICON HOVER
+========================================================= */
+
+.build-card:hover .build-card-icon {
+transform: rotate(-3deg) scale(1.06);
+
+box-shadow:
+    0 14px 30px rgba(79,70,229,0.22);
+
+}
+
+/* =========================================================
+CARD TEXT HOVER
+========================================================= */
+
+.build-card:hover .build-card-content h2 {
+background:
+linear-gradient(
+90deg,
+#7c3aed,
+#2563eb
+);
+
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+
+}
+
+/* =========================================================
+ARROW CIRCLE
+========================================================= */
+
+.card-arrow {
+width: 34px;
+height: 34px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+border-radius: 50%;
+background: rgba(124,58,237,0.08);
+font-size: 19px;
+
+}
+
+/* Different arrow colors */
+
+.build-card:nth-child(1) .card-arrow {
+color: #7c3aed;
+background: rgba(124,58,237,0.09);
+}
+
+.build-card:nth-child(2) .card-arrow {
+color: #2563eb;
+background: rgba(37,99,235,0.09);
+}
+
+.build-card:nth-child(3) .card-arrow {
+color: #0891b2;
+background: rgba(6,182,212,0.09);
+}
+
+/* =========================================================
+MOBILE TOUCH FEEDBACK
+========================================================= */
+
+@media (max-width: 600px) {
+
+.build-card:active {
+    transform: scale(0.965);
+    box-shadow:
+        0 8px 25px rgba(30,41,59,0.12);
+}
+.build-card:active .build-card-icon {
+    transform: scale(0.96);
+}
+
+}
