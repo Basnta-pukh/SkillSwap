@@ -2134,3 +2134,25 @@ font-weight: 700;
 }
 
 }
+// =========================
+// LUCIDE ICONS
+// =========================
+
+document.addEventListener("DOMContentLoaded", function() {
+    lucide.createIcons();
+});
+/* =========================
+   LUCIDE BUILD ICONS
+========================= */
+
+.build-card-icon svg {
+    width: 28px;
+    height: 28px;
+
+    stroke-width: 2;
+}
+
+.build-tip > span svg {
+    width: 21px;
+    height: 21px;
+}
