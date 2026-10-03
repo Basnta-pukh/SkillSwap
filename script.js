@@ -246,3 +246,16 @@ function findTeamMembers() {
         </div>
     `;
 }
+// =========================
+// LUCIDE ICONS
+// =========================
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+    }
+
+});
+
+
