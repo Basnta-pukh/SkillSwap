@@ -768,370 +768,727 @@ main {
     font-size: 11px;
     font-weight: 700;
 }
-/* =========================
-   PREMIUM BUILD EXPERIENCE
-========================= */
+/* =========================================================
+PREMIUM BUILD EXPERIENCE — V2
+========================================================= */
 
 .build-header {
-    padding: 22px 4px 10px;
+position: relative;
+
+padding: 28px 4px 14px;
+overflow: hidden;
+
 }
-
-.build-header h1 {
-    margin-top: 4px;
-
-    font-size: clamp(42px, 11vw, 64px);
-
-    line-height: 0.95;
-
-    letter-spacing: -3px;
-
-    color: #17201b;
-}
-
-.build-header .section-subtitle {
-    max-width: 520px;
-}
-
 
 /* =========================
-   BUILD OPTIONS
+BUILD BADGE
 ========================= */
 
-.build-options {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+.build-header::before {
+content: “✦  BUILD SOMETHING GREAT”;
 
-    margin-top: 30px;
+display: inline-flex;
+align-items: center;
+margin-bottom: 16px;
+padding: 7px 12px;
+border: 1px solid rgba(124, 58, 237, 0.18);
+border-radius: 999px;
+background: rgba(124, 58, 237, 0.08);
+color: #6d28d9;
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1px;
+
 }
+
+/* =========================
+BUILD HEADLINE
+========================= */
+
+.build-header h1 {
+margin-top: 2px;
+
+font-size: clamp(48px, 13vw, 76px);
+line-height: 0.92;
+letter-spacing: -4px;
+background:
+    linear-gradient(
+        110deg,
+        #7c3aed,
+        #2563eb,
+        #06b6d4
+    );
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+
+}
+
+/* =========================
+BUILD SUBTITLE
+========================= */
+
+.build-header .section-subtitle {
+max-width: 560px;
+
+margin-top: 18px;
+color: #69727c;
+font-size: 15px;
+line-height: 1.7;
+
+}
+
+/* =========================================================
+BUILD OPTIONS
+========================================================= */
+
+.build-options {
+display: flex;
+flex-direction: column;
+
+gap: 16px;
+margin-top: 32px;
+
+}
+
+/* =========================
+BUILD CARD
+========================= */
 
 .build-card {
-    position: relative;
+position: relative;
 
-    display: flex;
-    align-items: center;
+display: flex;
+align-items: center;
+width: 100%;
+min-height: 120px;
+padding: 20px;
+overflow: hidden;
+text-align: left;
+border: 1px solid rgba(255, 255, 255, 0.65);
+border-left: 4px solid #7c3aed;
+border-radius: 24px;
+background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.82),
+        rgba(245,247,255,0.72)
+    );
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+box-shadow:
+    0 10px 35px rgba(30, 41, 59, 0.07);
+transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 
-    width: 100%;
-
-    min-height: 112px;
-
-    padding: 20px;
-
-    text-align: left;
-
-    border: 1px solid #dfe6e1;
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff 0%,
-            #f4f8f5 100%
-        );
-
-    box-shadow:
-        0 8px 25px rgba(20, 30, 24, 0.05);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
 }
 
+/* =========================
+COLOURED CARD VARIATIONS
+========================= */
+
+.build-card:nth-child(1) {
+border-left-color: #7c3aed;
+}
+
+.build-card:nth-child(2) {
+border-left-color: #2563eb;
+}
+
+.build-card:nth-child(3) {
+border-left-color: #06b6d4;
+}
+
+/* =========================
+CARD GLOW
+========================= */
+
+.build-card::before {
+content: “”;
+
+position: absolute;
+width: 150px;
+height: 150px;
+right: -70px;
+top: -70px;
+border-radius: 50%;
+background:
+    radial-gradient(
+        circle,
+        rgba(124, 58, 237, 0.14),
+        transparent 70%
+    );
+pointer-events: none;
+
+}
+
+/* =========================
+CARD HOVER
+========================= */
+
 .build-card:hover {
-    transform: translateY(-4px);
+transform: translateY(-5px);
 
-    border-color: #16845f;
+border-color: rgba(124, 58, 237, 0.25);
+box-shadow:
+    0 20px 45px rgba(30, 41, 59, 0.12);
 
-    box-shadow:
-        0 16px 35px rgba(20, 30, 24, 0.09);
 }
 
 .build-card:active {
-    transform: scale(0.98);
+transform: scale(0.975);
 }
 
-
-/* =========================
-   BUILD ICON
-========================= */
+/* =========================================================
+BUILD ICON BOX
+========================================================= */
 
 .build-card-icon {
-    width: 58px;
-    height: 58px;
+position: relative;
 
-    flex-shrink: 0;
+width: 60px;
+height: 60px;
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 17px;
+border-radius: 19px;
+color: white;
+font-size: 27px;
+box-shadow:
+    0 10px 24px rgba(30, 41, 59, 0.15);
+z-index: 1;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-right: 16px;
-
-    border-radius: 18px;
-
-    background: #17201b;
-    color: white;
-
-    font-size: 27px;
-
-    box-shadow:
-        0 8px 18px rgba(23, 32, 27, 0.16);
 }
 
+/* Different gradient for each icon */
 
-/* =========================
-   BUILD CONTENT
-========================= */
+.build-card:nth-child(1) .build-card-icon {
+background:
+linear-gradient(
+135deg,
+#7c3aed,
+#a855f7
+);
+}
+
+.build-card:nth-child(2) .build-card-icon {
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#3b82f6
+);
+}
+
+.build-card:nth-child(3) .build-card-icon {
+background:
+linear-gradient(
+135deg,
+#0891b2,
+#06b6d4
+);
+}
+
+/* =========================================================
+BUILD CARD CONTENT
+========================================================= */
 
 .build-card-content {
-    flex: 1;
+position: relative;
+
+flex: 1;
+z-index: 1;
+
 }
 
 .build-card-content h2 {
-    color: #17201b;
+color: #17201b;
 
-    font-size: 18px;
+font-size: 18px;
+letter-spacing: -0.5px;
 
-    letter-spacing: -0.4px;
 }
 
 .build-card-content p {
-    max-width: 430px;
+max-width: 450px;
 
-    margin-top: 6px;
+margin-top: 7px;
+color: #69727c;
+font-size: 12px;
+line-height: 1.55;
 
-    color: #6d7771;
-
-    font-size: 12px;
-
-    line-height: 1.5;
 }
 
-
-/* =========================
-   ARROW
-========================= */
+/* =========================================================
+CARD ARROW
+========================================================= */
 
 .card-arrow {
-    margin-left: 10px;
+position: relative;
 
-    color: #16845f;
+margin-left: 10px;
+color: #7c3aed;
+font-size: 25px;
+transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 
-    font-size: 24px;
-
-    transition: transform 0.2s ease;
 }
 
 .build-card:hover .card-arrow {
-    transform: translateX(4px);
+transform: translateX(6px);
+
+opacity: 0.7;
+
 }
 
-
-/* =========================
-   BUILD TIP
-========================= */
+/* =========================================================
+BUILD TIP
+========================================================= */
 
 .build-tip {
-    display: flex;
-    align-items: flex-start;
-    gap: 13px;
+position: relative;
 
-    margin-top: 24px;
-    padding: 18px;
+display: flex;
+align-items: flex-start;
+gap: 14px;
+margin-top: 25px;
+padding: 20px;
+overflow: hidden;
+border: 1px solid rgba(255,255,255,0.12);
+border-radius: 23px;
+background:
+    linear-gradient(
+        135deg,
+        #171329,
+        #172554
+    );
+color: white;
+box-shadow:
+    0 15px 40px rgba(30, 41, 59, 0.16);
 
-    border-radius: 20px;
+}
 
-    background: #17201b;
-    color: white;
+/* Glow inside tip */
 
-    box-shadow:
-        0 10px 30px rgba(20, 30, 24, 0.12);
+.build-tip::before {
+content: “”;
+
+position: absolute;
+width: 180px;
+height: 180px;
+right: -70px;
+bottom: -100px;
+border-radius: 50%;
+background:
+    radial-gradient(
+        circle,
+        rgba(96,165,250,0.35),
+        transparent 70%
+    );
+
 }
 
 .build-tip > span {
-    font-size: 23px;
+position: relative;
+
+width: 42px;
+height: 42px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+border-radius: 14px;
+background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #2563eb
+    );
+font-size: 20px;
+
 }
 
 .build-tip strong {
-    font-size: 14px;
+position: relative;
+
+font-size: 14px;
+
 }
 
 .build-tip p {
-    margin-top: 5px;
+position: relative;
 
-    color: #cbd4ce;
+margin-top: 6px;
+color: #cbd5e1;
+font-size: 12px;
+line-height: 1.6;
 
-    font-size: 12px;
-
-    line-height: 1.55;
 }
 
-
-/* =========================
-   PREMIUM PROJECT FORM
-========================= */
+/* =========================================================
+PREMIUM PROJECT FORM
+========================================================= */
 
 .project-form {
-    margin-top: 30px;
+position: relative;
 
-    padding: 22px;
+margin-top: 30px;
+padding: 23px;
+overflow: hidden;
+border: 1px solid rgba(255,255,255,0.7);
+border-left: 4px solid #7c3aed;
+border-radius: 25px;
+background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.86),
+        rgba(245,247,255,0.78)
+    );
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+box-shadow:
+    0 12px 35px rgba(30, 41, 59, 0.08);
 
-    border: 1px solid #dfe6e1;
-    border-radius: 24px;
+}
 
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f3f7f4
-        );
+.project-form::before {
+content: “”;
 
-    box-shadow:
-        0 10px 30px rgba(20, 30, 24, 0.06);
+position: absolute;
+width: 180px;
+height: 180px;
+right: -90px;
+top: -90px;
+border-radius: 50%;
+background:
+    radial-gradient(
+        circle,
+        rgba(124,58,237,0.12),
+        transparent 70%
+    );
+pointer-events: none;
+
 }
 
 .project-form label {
-    color: #17201b;
+position: relative;
+
+color: #17201b;
+font-size: 13px;
+font-weight: 800;
+
 }
 
 .project-form input,
 .project-form textarea {
-    background: #ffffff;
+position: relative;
 
-    border: 1px solid #dce4de;
+width: 100%;
+padding: 15px;
+border: 1px solid #dce4ef;
+border-radius: 15px;
+background: rgba(255,255,255,0.82);
+color: #17201b;
+font-family: inherit;
+font-size: 14px;
+outline: none;
+transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 
-    border-radius: 14px;
 }
 
 .project-form input:focus,
 .project-form textarea:focus {
-    border-color: #16845f;
+border-color: #7c3aed;
 
-    box-shadow:
-        0 0 0 4px rgba(22, 132, 95, 0.08);
+box-shadow:
+    0 0 0 4px rgba(124,58,237,0.10);
+transform: translateY(-1px);
+
 }
 
-
-/* =========================
-   PRIMARY BUTTON
-========================= */
+/* =========================================================
+PRIMARY BUTTON
+========================================================= */
 
 .primary-btn {
-    width: 100%;
+position: relative;
 
-    min-height: 52px;
+width: 100%;
+min-height: 54px;
+padding: 14px 18px;
+border-radius: 16px;
+background:
+    linear-gradient(
+        110deg,
+        #7c3aed,
+        #2563eb
+    );
+color: white;
+font-size: 14px;
+font-weight: 800;
+box-shadow:
+    0 10px 25px rgba(79,70,229,0.22);
+transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
 
-    padding: 14px 18px;
-
-    border-radius: 15px;
-
-    background: #17201b;
-
-    color: white;
-
-    font-size: 14px;
-    font-weight: 800;
-
-    box-shadow:
-        0 8px 20px rgba(23, 32, 27, 0.15);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
 }
 
 .primary-btn:hover {
-    box-shadow:
-        0 12px 25px rgba(23, 32, 27, 0.2);
+opacity: 0.88;
+
+box-shadow:
+    0 14px 32px rgba(79,70,229,0.28);
+
 }
 
 .primary-btn:active {
-    transform: scale(0.97);
+transform: scale(0.97);
 }
 
-
-/* =========================
-   TEAM RESULTS
-========================= */
+/* =========================================================
+TEAM RESULTS
+========================================================= */
 
 .team-results {
-    margin-top: 30px;
+margin-top: 32px;
 }
 
 .team-results h2 {
-    color: #17201b;
+color: #17201b;
+
+font-size: 24px;
+letter-spacing: -0.7px;
+
 }
 
 .team-card {
-    border: 1px solid #dfe6e1;
+position: relative;
 
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #f4f8f5
-        );
+display: flex;
+align-items: center;
+gap: 14px;
+margin-top: 13px;
+padding: 16px;
+border: 1px solid rgba(255,255,255,0.7);
+border-left: 4px solid #2563eb;
+border-radius: 20px;
+background:
+    rgba(255,255,255,0.75);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+box-shadow:
+    0 8px 25px rgba(30,41,59,0.07);
+transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
-    box-shadow:
-        0 7px 22px rgba(20, 30, 24, 0.05);
+}
+
+.team-card:hover {
+transform: translateY(-3px);
+
+box-shadow:
+    0 14px 32px rgba(30,41,59,0.10);
+
+}
+
+.team-avatar {
+width: 50px;
+height: 50px;
+
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 16px;
+background:
+    linear-gradient(
+        135deg,
+        #ede9fe,
+        #dbeafe
+    );
+font-size: 24px;
+
+}
+
+.team-info {
+flex: 1;
+}
+
+.team-info h3 {
+color: #17201b;
+
+font-size: 16px;
+
+}
+
+.team-info p {
+margin-top: 3px;
+
+color: #69727c;
+font-size: 12px;
+
+}
+
+.team-info span {
+display: block;
+
+margin-top: 6px;
+color: #2563eb;
+font-size: 10px;
+font-weight: 800;
+
 }
 
 .team-card button {
-    background: #17201b;
+padding: 9px 13px;
 
-    border-radius: 11px;
+border-radius: 11px;
+background:
+    linear-gradient(
+        110deg,
+        #7c3aed,
+        #2563eb
+    );
+color: white;
+font-size: 11px;
+font-weight: 800;
+transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 
-    transition: 0.2s;
+}
+
+.team-card button:hover {
+opacity: 0.82;
 }
 
 .team-card button:active {
-    transform: scale(0.95);
+transform: scale(0.95);
 }
 
+/* =========================================================
+SUBTLE GRAIN TEXTURE
+========================================================= */
 
-/* =========================
-   BUILD MOBILE
-========================= */
+#projects::after {
+content: “”;
+
+position: fixed;
+inset: 0;
+z-index: -1;
+pointer-events: none;
+opacity: 0.025;
+background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+
+}
+
+/* =========================================================
+BUILD MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
-    .build-header {
-        padding-top: 18px;
-    }
+.build-header {
+    padding-top: 20px;
+}
+.build-header h1 {
+    font-size: 52px;
+    letter-spacing: -3px;
+}
+.build-header .section-subtitle {
+    font-size: 14px;
+}
+.build-options {
+    gap: 13px;
+    margin-top: 27px;
+}
+.build-card {
+    min-height: 108px;
+    padding: 16px;
+    border-radius: 21px;
+}
+.build-card-icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 13px;
+    border-radius: 16px;
+    font-size: 23px;
+}
+.build-card-content h2 {
+    font-size: 16px;
+}
+.build-card-content p {
+    font-size: 11px;
+}
+.card-arrow {
+    font-size: 21px;
+}
+.build-tip {
+    padding: 17px;
+    border-radius: 20px;
+}
+.project-form {
+    padding: 18px;
+    border-radius: 21px;
+}
+.primary-btn {
+    min-height: 52px;
+}
 
-    .build-card {
-        min-height: 105px;
+}
 
-        padding: 16px;
-    }
+/* =========================================================
+LOW-CONTRAST DARK BUILD MODE
+========================================================= */
 
-    .build-card-icon {
-        width: 52px;
-        height: 52px;
+@media (prefers-color-scheme: dark) {
 
-        margin-right: 13px;
+#projects {
+    color: #e5e7eb;
+}
+#projects .build-header h1 {
+    background:
+        linear-gradient(
+            110deg,
+            #a78bfa,
+            #60a5fa,
+            #67e8f9
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+#projects .build-header .section-subtitle {
+    color: #9ca3af;
+}
+#projects .build-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30,41,59,0.82),
+            rgba(23,37,84,0.68)
+        );
+    border-color: rgba(255,255,255,0.08);
+}
+#projects .build-card-content h2 {
+    color: #f1f5f9;
+}
+#projects .build-card-content p {
+    color: #94a3b8;
+}
 
-        border-radius: 16px;
-
-        font-size: 24px;
-    }
-
-    .build-card-content h2 {
-        font-size: 16px;
-    }
-
-    .build-card-content p {
-        font-size: 11px;
-    }
-
-    .card-arrow {
-        font-size: 20px;
-    }
-
-    .project-form {
-        padding: 18px;
-    }
 }
 /* ========================================
    PREMIUM + COLOURFUL BUILD EXPERIENCE
